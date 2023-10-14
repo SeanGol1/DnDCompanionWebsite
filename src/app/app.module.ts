@@ -18,6 +18,11 @@ import { ErrorInterceptor } from './_inteceptors/error.interceptor';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
 import { MemberCardComponent } from './members/member-card/member-card.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { CampaignListComponent } from './campaigns/campaign-list/campaign-list.component';
+import { CampaignCardComponent } from './campaigns/campaign-card/campaign-card.component';
+import { CampaignDetailComponent } from './campaigns/campaign-detail/campaign-detail.component';
+import { CampaignPlayersComponent } from './campaigns/campaign-players/campaign-players.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,11 @@ import { MemberCardComponent } from './members/member-card/member-card.component
     TestErrorComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    MemberCardComponent
+    MemberCardComponent,
+    CampaignListComponent,
+    CampaignCardComponent,
+    CampaignDetailComponent,
+    CampaignPlayersComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +52,8 @@ import { MemberCardComponent } from './members/member-card/member-card.component
     SharedModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS,useClass:ErrorInterceptor, multi:true}
+    {provide: HTTP_INTERCEPTORS,useClass:ErrorInterceptor, multi:true},
+    {provide: HTTP_INTERCEPTORS,useClass:JwtInterceptor, multi:true} 
   ],
   bootstrap: [AppComponent]
 })

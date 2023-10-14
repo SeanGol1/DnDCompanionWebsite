@@ -1,0 +1,42 @@
+<div class="row" *ngIf="campaign">
+    <div class="col-4">
+        <div class="card">
+            <!-- <img src="{{campaign.photoUrl || './assets/user.png'}}" alt="{{campaign.knownAs}}" class="card-img-top img-thumbnail"> -->
+            <div class="card-body">
+                <div>
+                    <h2>{{campaign.name}}</h2>
+                </div>
+                <div>
+                    <strong>Campaign Started:</strong>
+                    <p>{{campaign.createDate}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading="About">
+                <h4>DM</h4>
+                <p>{{campaign.adminUser}}</p>
+                <h4>Description</h4>
+                <p>{{campaign.description}}</p>
+            </tab>
+            <tab heading="Players">
+                <h4>Players</h4>
+                <div *ngFor="let player of players">
+                    <app-campaign-players [player]="player"></app-campaign-players>
+                </div>
+                
+            </tab>
+            <tab heading="Photos">
+                <p>Photos</p>
+            </tab>
+            <tab heading="Messages">
+                <p>Messages</p>
+            </tab>
+        </tabset>
+    </div>
+</div>

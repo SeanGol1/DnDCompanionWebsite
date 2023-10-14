@@ -8,15 +8,21 @@ import { AuthGuard } from './_guards/auth.guard';
 import { TestErrorComponent } from './errors/test-error/test-error.component';
 import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { ServerErrorComponent } from './errors/server-error/server-error.component';
+import { MermberDetailComponent } from './members/mermber-detail/mermber-detail.component';
+import { CampaignListComponent } from './campaigns/campaign-list/campaign-list.component';
+import { CampaignDetailComponent } from './campaigns/campaign-detail/campaign-detail.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: '', runGuardsAndResolvers: 'always', canActivate:[AuthGuard],
 children:[
   {path: 'members', component: MermberListComponent},
-  {path: 'members/:id', component: MermberListComponent},
+  {path: 'members/:username', component: MermberDetailComponent},
   {path: 'lists', component: ListsComponent},
-  {path: 'messages', component: MessagesComponent}
+  {path: 'messages', component: MessagesComponent},
+  {path: 'campaign', component: CampaignListComponent},
+  {path: 'campaign/:id', component: CampaignDetailComponent}
+
 ]},  
 
   {path:'errors',component:TestErrorComponent},
