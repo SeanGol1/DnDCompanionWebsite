@@ -1,0 +1,9 @@
+<h3>Main Quests</h3>
+<div *ngFor="let quest of mainQuests">
+    <app-campaign-quest [quest]="quest"></app-campaign-quest>
+</div>
+
+<h3>Side Quests</h3>
+<div *ngFor="let quest of sideQuests">
+    <app-campaign-quest [quest]="quest"></app-campaign-quest>
+</div>

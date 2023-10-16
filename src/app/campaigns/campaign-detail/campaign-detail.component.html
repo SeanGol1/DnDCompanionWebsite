@@ -7,6 +7,10 @@
                     <h2>{{campaign.name}}</h2>
                 </div>
                 <div>
+                    <strong>Campaign Id:</strong>
+                    <p>{{campaign.id}}</p>
+                </div>
+                <div>
                     <strong>Campaign Started:</strong>
                     <p>{{campaign.createDate}}</p>
                 </div>
@@ -28,11 +32,10 @@
                 <h4>Players</h4>
                 <div *ngFor="let player of players">
                     <app-campaign-players [player]="player"></app-campaign-players>
-                </div>
-                
+                </div>               
             </tab>
-            <tab heading="Photos">
-                <p>Photos</p>
+            <tab heading="Quests">
+                <app-campaign-quest-list [quest]="quests"></app-campaign-quest-list>
             </tab>
             <tab heading="Messages">
                 <p>Messages</p>

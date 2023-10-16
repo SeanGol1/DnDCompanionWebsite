@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { AccountService } from '../_services/account.service';
+import { CampaignService } from '../_services/campaign.service';
 
 @Component({
   selector: 'app-home',
@@ -8,8 +10,10 @@ import { Component } from '@angular/core';
 export class HomeComponent {
   registerMode = false;
   users: any;
+  model:any;
+  router: any;
 
-  constructor(){}
+  constructor(public accountService: AccountService,private campaignService:CampaignService){}
 
   ngOnInit():void{
   }
@@ -21,5 +25,12 @@ export class HomeComponent {
 
   cancelRegisterMode(event:boolean){
     this.registerMode = event;
+  }
+
+  join(){
+    this.model.username = '';
+    //this.campaignService.joinCampaign(this.model).subscribe({
+     // next: c:campaign =>  this.router.navigateByUrl('/campaign/'+ c.id)
+    //});
   }
 }
