@@ -26,6 +26,7 @@ import { CampaignPlayersComponent } from './campaigns/campaign-players/campaign-
 import { SideBarComponent } from './side-bar/side-bar.component';
 import { CampaignQuestComponent } from './campaigns/campaign-quest/campaign-quest.component';
 import { CampaignQuestListComponent } from './campaigns/campaign-quest-list/campaign-quest-list.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { CampaignQuestListComponent } from './campaigns/campaign-quest-list/camp
     CampaignPlayersComponent,
     SideBarComponent,
     CampaignQuestComponent,
-    CampaignQuestListComponent
+    CampaignQuestListComponent,
+    MemberEditComponent
   ],
   imports: [
     BrowserModule,

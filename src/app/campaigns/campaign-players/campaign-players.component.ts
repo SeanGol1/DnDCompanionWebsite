@@ -13,5 +13,9 @@ export class CampaignPlayersComponent implements OnInit{
   ngOnInit(): void {
     
   }
+
+  getDmName(){
+    
+  }
   
 }

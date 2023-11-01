@@ -11,6 +11,8 @@ import { ServerErrorComponent } from './errors/server-error/server-error.compone
 import { MermberDetailComponent } from './members/mermber-detail/mermber-detail.component';
 import { CampaignListComponent } from './campaigns/campaign-list/campaign-list.component';
 import { CampaignDetailComponent } from './campaigns/campaign-detail/campaign-detail.component';
+import { MemberEditComponent } from './members/member-edit/member-edit.component';
+import { preventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -18,6 +20,7 @@ const routes: Routes = [
 children:[
   {path: 'members', component: MermberListComponent},
   {path: 'members/:username', component: MermberDetailComponent},
+  {path: 'member/edit', component: MemberEditComponent, canDeactivate: [preventUnsavedChangesGuard]},
   {path: 'lists', component: ListsComponent},
   {path: 'messages', component: MessagesComponent},
   {path: 'campaign', component: CampaignListComponent},
