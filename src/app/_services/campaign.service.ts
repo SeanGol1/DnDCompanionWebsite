@@ -6,6 +6,7 @@ import { Player } from '../_models/player';
 import { Quest } from '../_models/quest';
 import { map, of } from 'rxjs';
 import { Npc } from '../_models/npc';
+import { User } from '../_models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -37,7 +38,7 @@ export class CampaignService {
   }
 
   getPlayersByCampaignId(id:number){
-    return this.http.get<Player[]>(this.baseUrl + 'campaign/players/' + id);
+    return this.http.get<Player[]>(this.baseUrl + 'campaign/playercharacters/' + id);
   }
 
   getQuestsByCampaignId(id:number){
@@ -62,6 +63,13 @@ export class CampaignService {
 
   joinCampaign(id:number){
     //return this.http.post<Number>(this.baseUrl + 'campaign/' + id)
+  }
+
+
+  addPlayer(player:Player,campaign:number,user: User){
+    player.campaignId = campaign;
+    player.userName = user.username;
+    return this.http.post(this.baseUrl + 'campaign/addpc', player).pipe();
   }
 
 

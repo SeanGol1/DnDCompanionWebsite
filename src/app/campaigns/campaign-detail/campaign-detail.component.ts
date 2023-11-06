@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { take } from 'rxjs';
 import { Campaign } from 'src/app/_models/campaign';
 import { Npc } from 'src/app/_models/npc';
 import { Player } from 'src/app/_models/player';
 import { Quest } from 'src/app/_models/quest';
-import { AccountService } from 'src/app/_services/account.service';
 import { CampaignService } from 'src/app/_services/campaign.service';
 
 @Component({

@@ -29,6 +29,7 @@ import { CampaignQuestListComponent } from './campaigns/campaign-quest-list/camp
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { NpcCardComponent } from './campaigns/npc-card/npc-card.component';
+import { AddPlayersComponent } from './players/add-players/add-players.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { NpcCardComponent } from './campaigns/npc-card/npc-card.component';
     CampaignQuestComponent,
     CampaignQuestListComponent,
     MemberEditComponent,
-    NpcCardComponent
+    NpcCardComponent,
+    AddPlayersComponent
   ],
   imports: [
     BrowserModule,

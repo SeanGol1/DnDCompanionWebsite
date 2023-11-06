@@ -13,6 +13,7 @@ import { CampaignListComponent } from './campaigns/campaign-list/campaign-list.c
 import { CampaignDetailComponent } from './campaigns/campaign-detail/campaign-detail.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { preventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
+import { AddPlayersComponent } from './players/add-players/add-players.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -21,6 +22,7 @@ children:[
   {path: 'members', component: MermberListComponent},
   {path: 'members/:username', component: MermberDetailComponent},
   {path: 'member/edit', component: MemberEditComponent, canDeactivate: [preventUnsavedChangesGuard]},
+  {path: 'players/add/:id', component: AddPlayersComponent, canDeactivate: [preventUnsavedChangesGuard]},
   {path: 'lists', component: ListsComponent},
   {path: 'messages', component: MessagesComponent},
   {path: 'campaign', component: CampaignListComponent},
