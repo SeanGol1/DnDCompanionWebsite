@@ -28,6 +28,7 @@ import { CampaignQuestComponent } from './campaigns/campaign-quest/campaign-ques
 import { CampaignQuestListComponent } from './campaigns/campaign-quest-list/campaign-quest-list.component';
 import { MemberEditComponent } from './members/member-edit/member-edit.component';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
+import { NpcCardComponent } from './campaigns/npc-card/npc-card.component';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
     SideBarComponent,
     CampaignQuestComponent,
     CampaignQuestListComponent,
-    MemberEditComponent
+    MemberEditComponent,
+    NpcCardComponent
   ],
   imports: [
     BrowserModule,

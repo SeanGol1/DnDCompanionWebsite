@@ -37,8 +37,13 @@
             <tab heading="Quests">
                 <app-campaign-quest-list  [quest]="quests"></app-campaign-quest-list>
             </tab>
-            <tab heading="Messages">
-                <p>Messages</p>
+            <tab heading="NPCs">
+                <div class="row">
+                    <p>NPCs</p>
+                    <div class="col-4" *ngFor="let npc of npcs">
+                        <app-npc-card  [npc]="npc"></app-npc-card>
+                    </div>   
+                </div>
             </tab>
         </tabset>
     </div>
