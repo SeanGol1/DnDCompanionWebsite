@@ -65,6 +65,8 @@ export class CampaignService {
     //return this.http.post<Number>(this.baseUrl + 'campaign/' + id)
   }
 
+  
+
 
   addPlayer(player:Player,campaign:number,user: User){
     player.campaignId = campaign;

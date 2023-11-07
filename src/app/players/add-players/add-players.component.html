@@ -1,15 +1,30 @@
 <div class="row" *ngIf="player">
-    <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
-        <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
-    </div>
-    <form #editForm="ngForm" id="editForm" (ngSubmit)="addPlayer()">
-        <h4 class="mt-2">Character name</h4>
-        <textarea class="form-control"
-            [(ngModel)]="player.characterName"
-            name="characterName"
-            rows="1"
-            ></textarea>
-    </form>
+    <div class="col-md-8">
+        <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
+            <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
+        </div>
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="addPlayer()">
+            <h4 class="mt-2">Character Sheet Link</h4>
+            <p>Export you character from DnD Beyond, paste the PDF link into the below box </p>
+            <textarea class="form-control"
+                [(ngModel)]="player.characterSheetLink"
+                name="characterSheetLink"
+                rows="1"
+                ></textarea>
 
-    <button type="submit" class="btn btn-success col-12" form="editForm">Save Changes</button>
+                <hr>
+                <h1>OR</h1>
+                <hr>
+            <h4 class="mt-2">Character name</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.characterName"
+                name="characterName"
+                rows="1"
+                ></textarea>
+
+        </form>
+    </div>
+    <div class="col-md-4">
+        <button type="submit" class="btn btn-success col-12" form="editForm">Save Changes</button>
+    </div>
 </div>

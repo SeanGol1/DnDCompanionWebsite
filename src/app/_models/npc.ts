@@ -1,5 +1,5 @@
 export interface Npc {
-    name : string;
+    characterName : string;
     photoUrl : string;
     livesIn: string;
 }

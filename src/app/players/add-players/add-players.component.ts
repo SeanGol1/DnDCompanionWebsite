@@ -22,7 +22,7 @@ export class AddPlayersComponent implements OnInit {
       $event.returnValue = true;
     }
   }
-  player: Player | null = {userName:"",characterName:"",campaignId:0};
+  player: Player | null = {userName:"",characterName:"",campaignId:0,characterSheetLink:"",photoUrl:""};
   user: User | null = null;
   campaign: Campaign  |  undefined;
   
