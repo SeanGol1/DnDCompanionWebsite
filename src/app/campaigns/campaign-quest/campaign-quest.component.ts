@@ -10,9 +10,9 @@ export class CampaignQuestComponent {
   @Input() quest : Quest  | undefined;
 
   deleteNote(){
-    
+    console.log("Delete");
   }
   toggleNoteVisibility(){
-
+    console.log("Vis");
   }
 }

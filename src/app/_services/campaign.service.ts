@@ -17,10 +17,16 @@ export class CampaignService {
   campaigns: Campaign[] = [];
   quests:Quest[] = [];
   npcs:Npc[]=[];
+  model:any;
+  user:User| null = null;
   private isAdminSource = new BehaviorSubject<boolean | null>(null);
   isAdmin$ = this.isAdminSource.asObservable();
 
-  constructor(private http:HttpClient, private accountService:AccountService) { }
+  constructor(private http:HttpClient, private accountService:AccountService) {
+    this.accountService.currentUser$.pipe(take(1)).subscribe({
+      next:user => this.user = user
+    })
+   }
 
   getCampaigns(){
     if(this.campaigns.length > 0) return of(this.campaigns);
@@ -64,8 +70,22 @@ export class CampaignService {
     );
   }
 
-  joinCampaign(id:number){
-    //return this.http.post<Number>(this.baseUrl + 'campaign/' + id)
+  joinCampaign(id:number, username:string){
+    this.model  = {
+      id: id,
+      userName: username
+    }
+    return this.http.post<any>(this.baseUrl + 'campaign/join', this.model)
+  }
+
+  createCampaign(name:string, username:string, description:string){
+    console.log("creating: "+ name + " " +username)
+    this.model  = {
+      name: name,
+      adminUser: username,
+      description: description
+    }
+    return this.http.post<Campaign>(this.baseUrl + 'campaign/create', this.model)
   }
 
   checkIsAdmin(campaign:Campaign){

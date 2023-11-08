@@ -2,6 +2,40 @@
     text-decoration:line-through;
 }
 
-#quest{
-    border: solid black;
+.btn{
+    z-index:1;
 }
+
+.fantasy-border {
+  margin: 10px;
+    z-index: 0;
+    border: 2px solid #6A0572; /* Dark purple border color */
+    background-color: #280135; /* Deep violet background color */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 0 10px rgba(106, 5, 114, 0.5); /* A subtle magical glow */
+    padding: 20px; /* Add some spacing inside the div */
+    color: #FFD700; /* Gold text color */
+  
+    /* Fantasy-themed font */
+    /*font-family: 'Cursive', 'fantasy';*/
+  
+  }
+  
+  /* Add some hover effects for interactive elements
+  .fantasy-border:hover {
+    transform: scale(1.05); /* Slight scale up on hover for a magical effect 
+    transition: transform 0.3s ease;
+  }
+  
+  /* Add some additional decorations, like a magic border, on the hover state 
+  .fantasy-border:hover::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    border: 2px dashed #FFD700; /* Gold dashed border 
+    border-radius: 12px; /* Match the div's border radius 
+  } */
+  

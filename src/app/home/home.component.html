@@ -9,26 +9,32 @@
         </div>
     </div>
 
-    <div *ngIf="(accountService.currentUser$| async)" class="container">
+    <!-- <div *ngIf="!(accountService.currentUser$| async)" class="container">
         <div class="row justify-content-center">
             <div class="col-4">
                 <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
             </div>
         </div>
-    </div>
-
-    <div>
-        <h2>Join Campaign</h2>
-        <form *ngIf="(accountService.currentUser$| async)" #loginForm="ngForm" class="d-flex" (ngSubmit)="join()" autocomplete="off">
-            <input 
-              name="CampaignCode"
-              [(ngModel)]="model.id"
-              class="form-control me-2" 
-              type="text" 
-              placeholder="Campaign Code">
-            <button class="btn btn-outline-success" type="submit">Login</button>
-          </form>
+    </div> -->
+    <div class="container" *ngIf="(accountService.currentUser$| async)">
+        <div class="row">
+        <div class="col-md-6 form-items">
+            <h2>Join Campaign</h2>
+            <input type="text" id="campaignId" [(ngModel)]="id" placeholder="Enter Campaign Code"/>
+            <button class="btn btn-outline-success" (click)="join()">Join</button>
+        </div>
         
+        <div class="col-md-6 form-items">
+            <h2>Create Campaign</h2>
+            <input type="text" id="campaignName" [(ngModel)]="name" placeholder="Enter Name"/>
+            <input type="text" id="campaignDescription" [(ngModel)]="description" placeholder="Enter Description"/>
+            <button class="btn btn-outline-success" (click)="create()">Join</button>
+        </div>
     </div>
-
+        <hr>
+        <div>
+            <h1>Campaign List</h1>
+            <app-campaign-list></app-campaign-list>
+        </div>
+    </div>
 </div>

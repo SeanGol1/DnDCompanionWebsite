@@ -1,4 +1,4 @@
-<div id="quest" class="row" *ngIf="quest" >
+<div id="quest" class="row fantasy-border" *ngIf="quest" >
 
     <div class="row">
         <div class="col-md-8">
@@ -12,8 +12,8 @@
             </ng-container>
         </div>
         <div class="col-md-4">
-            <button class="btn btn-primary" (click)="deleteNote"><i class="fa fa-trash"></i> Delete Note</button>
-            <button class="btn btn-primary" (click)="toggleNoteVisibility"><i class="fa fa-eye"></i> Make Visible</button>
+            <button class="btn btn-primary" (click)="deleteNote()"><i class="fa fa-trash"></i> Delete Note</button>
+            <button class="btn btn-primary" (click)="toggleNoteVisibility()"><i class="fa fa-eye"></i> Make Visible</button>
         </div>
     </div>
 </div>
