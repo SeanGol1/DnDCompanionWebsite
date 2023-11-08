@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 import { Campaign } from 'src/app/_models/campaign';
 import { Npc } from 'src/app/_models/npc';
 import { Player } from 'src/app/_models/player';
 import { Quest } from 'src/app/_models/quest';
+import { User } from 'src/app/_models/user';
+import { AccountService } from 'src/app/_services/account.service';
 import { CampaignService } from 'src/app/_services/campaign.service';
 
 @Component({
@@ -13,54 +16,97 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 })
 
 export class CampaignDetailComponent implements OnInit{
-  campaign: Campaign  |  undefined;
+  campaign : Campaign  | undefined;
+  user: User |  null = null;
   players: Player[] = []; 
   quests: Quest[] = [];
   npcs: Npc[]=[];
+  mainQuests : Quest[] = [];
+  sideQuests : Quest[] = [];
+  isAdmin: boolean = false;
 
-  constructor(private campaignService:CampaignService, private route: ActivatedRoute){}
+
+  constructor(private campaignService:CampaignService, private accountService:AccountService,private route: ActivatedRoute){}
 
   ngOnInit(): void {
-    this.loadCampaign();
+    this.loadCampaign();    
     this.loadPlayers();
-    this.loadQuests();
-    this.loadNpcs();
-    
   }
 
-  loadCampaign(){   
+  loadCampaign(){       
     var campaign = Number(this.route.snapshot.paramMap.get('id'));
     if(campaign) {
-    this.campaignService.getCampaignById(campaign).subscribe({
-      next: campaign=> this.campaign = campaign
-    });
-  }
+      this.campaignService.getCampaignById(campaign).pipe(take(1)).subscribe({
+        next: campaign=> {
+          this.campaign = campaign
+          this.loadQuests(campaign);
+          this.loadNpcs(campaign);
+        }
+      });
+    }
   }
 
   loadPlayers(){
     var campaign = Number(this.route.snapshot.paramMap.get('id'));
     if(campaign){
       this.campaignService.getPlayersByCampaignId(campaign).subscribe({
-        next: players=>  this.players = players
+        next: players=> this.players = players
       });
     }
   }
 
-  loadNpcs(){
-    var campaign = Number(this.route.snapshot.paramMap.get('id'));
+  loadNpcs(campaign:Campaign){
     if(campaign){
-      this.campaignService.getNPCsByCampaignId(campaign).subscribe({
-        next: npcs=>  this.npcs = npcs
+      this.campaignService.getNPCsByCampaignId(campaign.id).subscribe({
+        next: npcs=>  {
+          //this.npcs = npcs   
+          this.accountService.currentUser$.pipe(take(1)).subscribe({
+            next: user=> this.user = user
+          });
+    
+          if(this.campaign?.adminUser == this.user?.username ){
+            this.isAdmin = true;
+            this.npcs = npcs;
+          } 
+          else{
+            this.isAdmin = false;
+            this.npcs = npcs.filter((npc:Npc) => npc.isVisible == true);       
+          }
+        }
       });
     }
   }
 
-  loadQuests(){
-    var campaign = Number(this.route.snapshot.paramMap.get('id'));
+  loadQuests(campaign:Campaign){
     if(campaign){
-      this.campaignService.getQuestsByCampaignId(campaign).subscribe({
+      this.campaignService.getQuestsByCampaignId(campaign.id).subscribe({
         next: quests=>  this.quests = quests
       });
+
+      this.accountService.currentUser$.pipe(take(1)).subscribe({
+        next: user=> this.user = user
+      });
+
+      if(this.campaign?.adminUser == this.user?.username ){
+        this.isAdmin = true;
+        this.getDmQuests();        
+      } 
+      else{
+        this.isAdmin = false;
+        this.getQuests();        
+      }
     }
+  }
+
+  getQuests(){
+    console.log("Load Non Dm Quests");
+    this.mainQuests = this.quests.filter((quest:Quest) => quest.questType == 1).filter((quest:Quest)=> quest.isVisible == true); 
+    this.sideQuests = this.quests.filter((quest:Quest) => quest.questType == 2).filter((quest:Quest)=> quest.isVisible == true);
+  }
+
+  getDmQuests(){
+    console.log("Load DM Quests");
+    this.mainQuests = this.quests.filter((quest:Quest) => quest.questType == 1);
+    this.sideQuests = this.quests.filter((quest:Quest) => quest.questType == 2);
   }
 }

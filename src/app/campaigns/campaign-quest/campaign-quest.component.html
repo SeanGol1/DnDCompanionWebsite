@@ -1,12 +1,19 @@
-<div class="row" *ngIf="quest" >
+<div id="quest" class="row" *ngIf="quest" >
 
-        <ng-container *ngIf="!quest.isCompleted">
-            <h6>{{quest.name}}</h6>
-            <p>{{quest.description}}</p>
-        </ng-container>
-        <ng-container *ngIf="quest.isCompleted">
-            <h6 class="completed">{{quest.name}}</h6>
-            <p class="completed">{{quest.description}}</p>
-        </ng-container>
-
+    <div class="row">
+        <div class="col-md-8">
+            <ng-container *ngIf="!quest.isCompleted">
+                <h6>{{quest.name}}</h6>
+                <p>{{quest.description}}</p>
+            </ng-container>
+            <ng-container *ngIf="quest.isCompleted">
+                <h6 class="completed">{{quest.name}}</h6>
+                <p class="completed">{{quest.description}}</p>
+            </ng-container>
+        </div>
+        <div class="col-md-4">
+            <button class="btn btn-primary" (click)="deleteNote"><i class="fa fa-trash"></i> Delete Note</button>
+            <button class="btn btn-primary" (click)="toggleNoteVisibility"><i class="fa fa-eye"></i> Make Visible</button>
+        </div>
+    </div>
 </div>

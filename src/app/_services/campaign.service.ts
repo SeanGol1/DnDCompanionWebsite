@@ -4,9 +4,10 @@ import { environment } from 'src/environments/environment';
 import { Campaign } from '../_models/campaign';
 import { Player } from '../_models/player';
 import { Quest } from '../_models/quest';
-import { map, of } from 'rxjs';
+import { BehaviorSubject, map, of, take } from 'rxjs';
 import { Npc } from '../_models/npc';
 import { User } from '../_models/user';
+import { AccountService } from './account.service';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +17,10 @@ export class CampaignService {
   campaigns: Campaign[] = [];
   quests:Quest[] = [];
   npcs:Npc[]=[];
+  private isAdminSource = new BehaviorSubject<boolean | null>(null);
+  isAdmin$ = this.isAdminSource.asObservable();
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private accountService:AccountService) { }
 
   getCampaigns(){
     if(this.campaigns.length > 0) return of(this.campaigns);
@@ -65,13 +68,30 @@ export class CampaignService {
     //return this.http.post<Number>(this.baseUrl + 'campaign/' + id)
   }
 
-  
+  checkIsAdmin(campaign:Campaign){
+    this.accountService.currentUser$.pipe(take(1)).subscribe({
+      next: user=> {
+        if(user?.username == campaign?.adminUser){
+          this.isAdminSource.next(true);
+        }
+        else return this.isAdminSource.next(false);
+      }
+    });
+  }
 
 
   addPlayer(player:Player,campaign:number,user: User){
     player.campaignId = campaign;
     player.userName = user.username;
     return this.http.post(this.baseUrl + 'campaign/addpc', player).pipe();
+  }
+
+  deleteNote(quest:Quest){
+    return this.http.post(this.baseUrl + 'quests/delete',quest);
+  }
+
+  toggleNoteVisibility(quest:Quest){
+    return this.http.post(this.baseUrl + 'quest/toggleVisibility' ,quest);
   }
 
 

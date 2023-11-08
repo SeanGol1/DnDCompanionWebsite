@@ -29,16 +29,28 @@
                 <p>{{campaign.description}}</p>
             </tab>
             <tab heading="Players">
-                <div class="row">
-                <h4>Player Characters</h4>
-                <button class="btn btn-primary md-4" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-user"></i>Add New PC</button>
-                <div class="col-4" *ngFor="let player of players">
-                    <app-campaign-players [player]="player"></app-campaign-players>
-                </div>      
+                <div class="row" id="player-div">
+                    <div class="row">
+                        <h4 class="col-md-3">Player Characters</h4>
+                        <button class="btn btn-primary col-md-9" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New PC</button>
+                    </div>
+                    <div class="col-4" *ngFor="let player of players">
+                        <app-campaign-players [player]="player"></app-campaign-players>
+                    </div>      
                 </div>         
             </tab>
             <tab heading="Quests">
-                <app-campaign-quest-list  [quest]="quests"></app-campaign-quest-list>
+                <div class="row">
+                    <h3>Main Quests</h3>
+                    <div *ngFor="let quest of mainQuests">
+                        <app-campaign-quest [quest]="quest" ></app-campaign-quest>
+                    </div>
+
+                    <h3>Side Quests</h3>
+                    <div *ngFor="let quest of sideQuests">
+                        <app-campaign-quest [quest]="quest"></app-campaign-quest>
+                    </div>    
+                </div> 
             </tab>
             <tab heading="NPCs">
                 <div class="row">

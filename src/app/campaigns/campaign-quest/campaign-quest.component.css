@@ -1,3 +1,7 @@
 .completed{
     text-decoration:line-through;
 }
+
+#quest{
+    border: solid black;
+}

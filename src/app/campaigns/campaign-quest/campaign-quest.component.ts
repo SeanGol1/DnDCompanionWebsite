@@ -8,4 +8,11 @@ import { Quest } from 'src/app/_models/quest';
 })
 export class CampaignQuestComponent {
   @Input() quest : Quest  | undefined;
+
+  deleteNote(){
+    
+  }
+  toggleNoteVisibility(){
+
+  }
 }
