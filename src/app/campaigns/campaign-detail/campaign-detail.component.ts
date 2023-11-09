@@ -26,7 +26,8 @@ export class CampaignDetailComponent implements OnInit{
   isAdmin: boolean = false;
 
 
-  constructor(private campaignService:CampaignService, private accountService:AccountService,private route: ActivatedRoute){}
+  constructor(private campaignService:CampaignService, private accountService:AccountService,private route: ActivatedRoute){
+  }
 
   ngOnInit(): void {
     this.loadCampaign();    
