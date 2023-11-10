@@ -46,6 +46,10 @@ export class CampaignService {
     return this.http.get<Campaign>(this.baseUrl + 'campaign/' + id);
   }
 
+  deleteCampaign(id:number){
+    return this.http.delete(this.baseUrl + 'campaign/delete/' + id);
+  }
+
   getPlayersByCampaignId(id:number){
     return this.http.get<Player[]>(this.baseUrl + 'campaign/playercharacters/' + id);
   }

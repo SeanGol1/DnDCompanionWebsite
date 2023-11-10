@@ -1,6 +1,6 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { FormControl, NgForm, NgModel } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs';
 import { Campaign } from 'src/app/_models/campaign';
@@ -26,7 +26,7 @@ export class AddPlayersComponent implements OnInit {
   user: User | null = null;
   campaign: Campaign  |  undefined;
   
-  constructor(private accountService:AccountService, private toastr:ToastrService,private campaignService:CampaignService, private route: ActivatedRoute){
+  constructor(private accountService:AccountService, private toastr:ToastrService,private campaignService:CampaignService, private route: ActivatedRoute, private router:Router){
     this.accountService.currentUser$.pipe(take(1)).subscribe({
       next:user => this.user = user
     })
@@ -43,6 +43,7 @@ export class AddPlayersComponent implements OnInit {
         next: _ => {
           this.toastr.success('profile updated successfully');
           this.editForm?.reset(this.player);
+          this.router.navigateByUrl('/campaign/' + campaign);
         }
       });
     }

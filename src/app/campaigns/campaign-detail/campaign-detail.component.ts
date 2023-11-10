@@ -47,6 +47,8 @@ export class CampaignDetailComponent implements OnInit{
     }
   }
 
+
+
   loadPlayers(){
     var campaign = Number(this.route.snapshot.paramMap.get('id'));
     if(campaign){

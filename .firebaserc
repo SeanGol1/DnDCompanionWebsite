@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "campaigncompanion-2925d"
+  },
+  "targets": {
+    "campaigncompanion-2925d": {
+      "hosting": {
+        "client": [
+          "campaigncompanion-2925d"
+        ]
+      }
+    }
+  }
+}
