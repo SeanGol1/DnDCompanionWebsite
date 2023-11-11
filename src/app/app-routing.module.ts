@@ -30,7 +30,8 @@ children:[
   {path: 'campaign', component: CampaignListComponent},
   {path: 'campaign/:id', component: CampaignDetailComponent},
   {path: 'players/:id', component: PlayerDetailsComponent},
-  {path: 'quests/add/:id',component:AddQuestComponent, canDeactivate: [preventUnsavedChangesGuard]}
+  {path: 'quests/add/:id',component:AddQuestComponent, canDeactivate: [preventUnsavedChangesGuard]},
+  {path: 'npc/add/:id',component:AddPlayersComponent, canDeactivate: [preventUnsavedChangesGuard]}
 
 
 ]},  

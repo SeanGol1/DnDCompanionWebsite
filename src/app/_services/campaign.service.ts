@@ -118,8 +118,8 @@ export class CampaignService {
     return this.http.post(this.baseUrl + 'campaign/addpc', player).pipe();
   }
 
-  deleteNote(quest:Quest){
-    return this.http.post(this.baseUrl + 'quests/delete',quest);
+  deleteQuest(id:number){
+    return this.http.delete(this.baseUrl + 'quests/delete/' + id);
   }
 
   toggleNoteVisibility(quest:Quest){

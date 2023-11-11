@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Quest } from 'src/app/_models/quest';
+import { CampaignService } from 'src/app/_services/campaign.service';
 
 @Component({
   selector: 'app-campaign-quest',
@@ -9,10 +11,19 @@ import { Quest } from 'src/app/_models/quest';
 export class CampaignQuestComponent {
   @Input() quest : Quest  | undefined;
 
-  deleteNote(){
+  constructor(private campaignService:CampaignService,private toastr:ToastrService){}
+
+  deleteQuest(id:number){
     console.log("Delete");
+    this.campaignService.deleteQuest(id).subscribe({
+      next: () =>  { 
+        this.toastr.success('Quest Deleted Successfully');
+        window.location.reload();
+      }
+    });
+
   }
-  toggleNoteVisibility(){
+  toggleQuestVisibility(id:number){
     console.log("Vis");
   }
 }

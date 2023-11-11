@@ -35,7 +35,7 @@ export class AddQuestComponent implements OnInit{
     if(this.quest){
       this.campaignService.addQuest(this.editForm?.value,campaign).subscribe({
         next: () => {
-          this.toastr.success('profile updated successfully');
+          this.toastr.success('Quest Added Successfully');
           this.editForm?.reset(this.quest);
           this.router.navigateByUrl('/campaign/' + campaign);
         }
