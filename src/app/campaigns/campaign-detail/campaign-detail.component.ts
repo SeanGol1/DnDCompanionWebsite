@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { Campaign } from 'src/app/_models/campaign';
@@ -15,7 +15,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
   styleUrls: ['./campaign-detail.component.css']
 })
 
-export class CampaignDetailComponent implements OnInit{
+export class CampaignDetailComponent implements OnInit,AfterViewInit{
   campaign : Campaign  | undefined;
   user: User |  null = null;
   players: Player[] = []; 
@@ -25,8 +25,12 @@ export class CampaignDetailComponent implements OnInit{
   sideQuests : Quest[] = [];
   isAdmin: boolean = false;
 
-
   constructor(private campaignService:CampaignService, private accountService:AccountService,private route: ActivatedRoute){
+  }
+
+  ngAfterViewInit(): void {
+    // this.loadCampaign();    
+    // this.loadPlayers();
   }
 
   ngOnInit(): void {
@@ -40,6 +44,7 @@ export class CampaignDetailComponent implements OnInit{
       this.campaignService.getCampaignById(campaign).pipe(take(1)).subscribe({
         next: campaign=> {
           this.campaign = campaign
+          console.log("loading quest/npc. with " + campaign.name)
           this.loadQuests(campaign);
           this.loadNpcs(campaign);
         }

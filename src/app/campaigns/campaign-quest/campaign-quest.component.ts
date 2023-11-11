@@ -21,8 +21,8 @@ export class CampaignQuestComponent {
         window.location.reload();
       }
     });
-
   }
+  
   toggleQuestVisibility(id:number){
     console.log("Vis");
   }
