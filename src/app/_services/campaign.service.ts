@@ -126,5 +126,12 @@ export class CampaignService {
     return this.http.post(this.baseUrl + 'quest/toggleVisibility' ,quest);
   }
 
-
+  addQuest(quest:Quest,campaign:number){
+    quest.campaignId = campaign;
+    quest.isVisible= true;
+    quest.isCompleted = false;
+    quest.questType = 1;
+    console.log(quest);
+    return this.http.post(this.baseUrl + 'quests', quest).pipe();
+  }
 }

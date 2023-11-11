@@ -15,6 +15,7 @@ import { MemberEditComponent } from './members/member-edit/member-edit.component
 import { preventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 import { AddPlayersComponent } from './players/add-players/add-players.component';
 import { PlayerDetailsComponent } from './players/player-details/player-details.component';
+import { AddQuestComponent } from './quests/add-quest/add-quest.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -28,7 +29,9 @@ children:[
   {path: 'messages', component: MessagesComponent},
   {path: 'campaign', component: CampaignListComponent},
   {path: 'campaign/:id', component: CampaignDetailComponent},
-  {path: 'players/:id', component: PlayerDetailsComponent}
+  {path: 'players/:id', component: PlayerDetailsComponent},
+  {path: 'quests/add/:id',component:AddQuestComponent, canDeactivate: [preventUnsavedChangesGuard]}
+
 
 ]},  
 

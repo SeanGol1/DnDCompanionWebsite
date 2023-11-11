@@ -31,6 +31,7 @@ import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { NpcCardComponent } from './campaigns/npc-card/npc-card.component';
 import { AddPlayersComponent } from './players/add-players/add-players.component';
 import { PlayerDetailsComponent } from './players/player-details/player-details.component';
+import { AddQuestComponent } from './quests/add-quest/add-quest.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { PlayerDetailsComponent } from './players/player-details/player-details.
     MemberEditComponent,
     NpcCardComponent,
     AddPlayersComponent,
-    PlayerDetailsComponent
+    PlayerDetailsComponent,
+    AddQuestComponent
   ],
   imports: [
     BrowserModule,

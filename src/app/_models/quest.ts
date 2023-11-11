@@ -5,6 +5,6 @@ export interface Quest {
     questType: number
     isCompleted: boolean
     isVisible: boolean
-    parentQuestId: string
+    campaignId: number
   }
   

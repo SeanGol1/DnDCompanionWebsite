@@ -42,6 +42,8 @@
             <tab heading="Quests">
                 <div class="row">
                     <h3>Main Quests</h3>
+                    <button class="btn btn-primary col-md-9" routerLink="/quests/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New PC</button>
+
                     <div *ngFor="let quest of mainQuests">
                         <app-campaign-quest [quest]="quest" ></app-campaign-quest>
                     </div>
