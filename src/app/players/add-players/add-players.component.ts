@@ -22,7 +22,8 @@ export class AddPlayersComponent implements OnInit {
       $event.returnValue = true;
     }
   }
-  player: Player | null = {userName:"",characterName:"",campaignId:0,characterSheetLink:"",photoUrl:""};
+  player: Player | undefined = {id:0,userName:"",characterName:"",campaignId:0,campaignName:"",characterSheetLink:"",photoUrl:"",
+  description:"",strength:"",dexterity:"",constitution:"",intelligence:"",wisdom:"",charisma:"",race:"",class:""};
   user: User | null = null;
   campaign: Campaign  |  undefined;
   

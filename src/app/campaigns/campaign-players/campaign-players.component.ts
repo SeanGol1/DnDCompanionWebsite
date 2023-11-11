@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Player } from 'src/app/_models/player';
+import { CampaignService } from 'src/app/_services/campaign.service';
 
 @Component({
   selector: 'app-campaign-players',
@@ -8,7 +10,7 @@ import { Player } from 'src/app/_models/player';
 })
 export class CampaignPlayersComponent implements OnInit{
   @Input() player : Player  | undefined;
-  constructor(){}
+  constructor(private campaignService:CampaignService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
     
@@ -16,6 +18,17 @@ export class CampaignPlayersComponent implements OnInit{
 
   getDmName(){
     
+  }
+
+  deletePlayer(id:number){
+    var campaign = Number(this.route.snapshot.paramMap.get('id'));
+    if(campaign) {
+      this.campaignService.deletePlayer(id).subscribe({
+        next: () =>  { 
+          window.location.reload()
+        }
+      });
+    }
   }
   
 }

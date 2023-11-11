@@ -10,6 +10,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
   templateUrl: './campaign-card.component.html',
   styleUrls: ['./campaign-card.component.css']
 })
+
 export class CampaignCardComponent {
   @Input() campaign : Campaign  | undefined;
   isAdmin: boolean = false; 

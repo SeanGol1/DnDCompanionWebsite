@@ -54,6 +54,14 @@ export class CampaignService {
     return this.http.get<Player[]>(this.baseUrl + 'campaign/playercharacters/' + id);
   }
 
+  getPlayersById(id:number){
+    return this.http.get<Player>(this.baseUrl + 'campaign/player/' + id);
+  }
+
+  deletePlayer(id:number){
+    return this.http.delete(this.baseUrl + 'campaign/player/delete/' + id);
+  }
+
   getQuestsByCampaignId(id:number){
     if(this.quests.length > 0) return of(this.quests);
     return this.http.get<Quest[]>(this.baseUrl + 'quests/' + id).pipe(

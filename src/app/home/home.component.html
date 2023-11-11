@@ -1,21 +1,21 @@
 
 <div class="container mt-5">
-    <div *ngIf="!(accountService.currentUser$| async)" style="text-align: center;">
+    <!--<div *ngIf="!(accountService.currentUser$| async)" style="text-align: center;">
         <h1>Register Here!</h1>
         <p class="lead">Sign up to start using the companion app.</p>
         <div class="text-center">
             <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Register</button>
             <button class="btn btn-primary btn-info btn-lg me-2">Learn More</button>
         </div>
-    </div>
+    </div>-->
 
-    <div *ngIf="!(accountService.currentUser$| async)" class="container">
+    <div *ngIf="!(accountService.currentUser$| async)">
         <div class="row justify-content-center">
             <div class="col-4">
                 <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
             </div>
         </div>
-    </div> 
+    </div>  
     <div class="container" *ngIf="(accountService.currentUser$| async)">
         <div class="row">
         <div class="col-md-6 form-items">

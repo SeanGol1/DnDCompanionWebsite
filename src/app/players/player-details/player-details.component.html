@@ -1,0 +1,72 @@
+ <h2>View Character</h2>
+ <div class="row" *ngIf="player">
+    <div class="col-4">
+        <div class="card">
+             <img src="{{player.photoUrl}}" alt="{{player.characterName}}" class="card-img-top img-thumbnail"> 
+            <div class="card-body">
+                <div>
+                    <h2>{{player.characterName}}</h2>
+                </div>
+                <div>
+                    <strong>Campaign Name:</strong>
+                    <p>{{player.campaignName}}</p>
+                </div>
+                <div>
+                    <strong>User:</strong>
+                    <p>{{player.userName}}</p>
+                </div>
+            </div>
+            <div class="card-footer">
+            </div>
+        </div>
+    </div>
+
+    <div class="col-8">
+        <div>
+            <h4>Background</h4>
+            <p>{{player.description}}</p>
+        </div>
+
+        <div class="row" id="stats-div">
+            <div class="container">
+                <table class="table table-hover">
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead> 
+                    <tbody>
+                      <tr>
+                        <th scope="row"> STR</th>
+                        <td>{{player.strength}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"> DEX</th>
+                        <td>{{player.dexterity}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"> CON</th>
+                        <td>{{player.constitution}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"> INT</th>
+                        <td>{{player.intelligence}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"> WIS</th>
+                        <td>{{player.wisdom}}</td>
+                      </tr>
+                      <tr>
+                        <th scope="row"> CHA</th>
+                        <td>{{player.charisma}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                
+            </div>      
+        </div>         
+
+
+    </div>
+</div> 
