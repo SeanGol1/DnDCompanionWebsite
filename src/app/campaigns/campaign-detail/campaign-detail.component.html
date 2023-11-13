@@ -35,12 +35,12 @@
                         <button class="btn btn-primary col-md-9" routerLink="/quests/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New Quest</button>
                     </div>
                     <div *ngFor="let quest of mainQuests">
-                        <app-campaign-quest [quest]="quest" ></app-campaign-quest>
+                        <app-campaign-quest [quest]="quest" [isAdmin] ="isAdmin"></app-campaign-quest>
                     </div>
 
                     <h3>Side Quests</h3>
                     <div style="margin-top: 20px;" *ngFor="let quest of sideQuests">
-                        <app-campaign-quest [quest]="quest"></app-campaign-quest>
+                        <app-campaign-quest [quest]="quest" [isAdmin] ="isAdmin" ></app-campaign-quest>
                     </div>    
                 </div> 
             </tab>
@@ -51,7 +51,7 @@
                         <button class="btn btn-primary col-md-9" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New PC</button>
                     </div>
                     <div class="col-4" style="margin-top: 20px;" *ngFor="let player of players">
-                        <app-campaign-players [player]="player"></app-campaign-players>
+                        <app-campaign-players [player]="player" [isAdmin] ="isAdmin"></app-campaign-players>
                     </div>      
                 </div>         
             </tab>

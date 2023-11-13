@@ -69,17 +69,21 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
         next: npcs=>  {
           //this.npcs = npcs   
           this.accountService.currentUser$.pipe(take(1)).subscribe({
-            next: user=> this.user = user
+            next: user=> {
+              this.user = user
+              if(this.campaign?.adminUser == this.user?.username ){
+                this.isAdmin = true;
+                this.npcs = npcs;
+              } 
+              else{
+                this.isAdmin = false;
+                this.npcs = npcs.filter((npc:Npc) => npc.isVisible == true);       
+              }
+
+            }
           });
     
-          if(this.campaign?.adminUser == this.user?.username ){
-            this.isAdmin = true;
-            this.npcs = npcs;
-          } 
-          else{
-            this.isAdmin = false;
-            this.npcs = npcs.filter((npc:Npc) => npc.isVisible == true);       
-          }
+
         }
       });
     }
@@ -88,21 +92,24 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
   loadQuests(campaign:Campaign){
     if(campaign){
       this.campaignService.getQuestsByCampaignId(campaign.id).subscribe({
-        next: quests=>  this.quests = quests
+        next: quests=>  {
+          this.quests = quests
+          this.accountService.currentUser$.pipe(take(1)).subscribe({
+            next: user=> {
+              this.user = user
+              if(this.campaign?.adminUser == this.user?.username ){
+                this.isAdmin = true;
+                this.getDmQuests();        
+              } 
+              else{
+                this.isAdmin = false;
+                this.getQuests();        
+              }
+            }
+          });
+        }
       });
 
-      this.accountService.currentUser$.pipe(take(1)).subscribe({
-        next: user=> this.user = user
-      });
-
-      if(this.campaign?.adminUser == this.user?.username ){
-        this.isAdmin = true;
-        this.getDmQuests();        
-      } 
-      else{
-        this.isAdmin = false;
-        this.getQuests();        
-      }
     }
   }
 

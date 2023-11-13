@@ -10,6 +10,8 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 })
 export class CampaignQuestComponent {
   @Input() quest : Quest  | undefined;
+  @Input() isAdmin : Boolean  | undefined;
+
 
   constructor(private campaignService:CampaignService,private toastr:ToastrService){}
 

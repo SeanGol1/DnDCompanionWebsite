@@ -10,6 +10,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 })
 export class CampaignPlayersComponent implements OnInit{
   @Input() player : Player  | undefined;
+  @Input() isAdmin : Boolean  | undefined;
   constructor(private campaignService:CampaignService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
