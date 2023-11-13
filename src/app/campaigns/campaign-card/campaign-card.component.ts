@@ -13,7 +13,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 
 export class CampaignCardComponent {
   @Input() campaign : Campaign  | undefined;
-  isAdmin: boolean = false; 
+  isAdmin: boolean | undefined; 
   constructor(public accountService:AccountService, private campaignService:CampaignService, private router:Router, private route:ActivatedRoute){}
 
   ngOnInit(): void {
@@ -23,8 +23,11 @@ export class CampaignCardComponent {
   checkIsAdmin(){
     this.accountService.currentUser$.pipe(take(1)).subscribe({
       next: user=> {
+        console.log("isAdmin " + this.campaign?.adminUser + " " + user?.username)
         if(user?.username == this.campaign?.adminUser){
           this.isAdmin == true;
+          console.log("isAdmin " + this.isAdmin)
+          
         }
       }
     });

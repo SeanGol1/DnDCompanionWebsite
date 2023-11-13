@@ -1,7 +1,7 @@
 <div class="card mb-4" *ngIf="campaign">
     <div class="card-img-wrapper">
         <!-- <img src="{{campaign.photoUrl}}" alt="{{campaign.knownAs}}" class="card-img-top "> -->
-        <ng-container *ngIf="isAdmin">
+    <ng-container *ngIf="isAdmin">
         <h3><strong>DM</strong></h3>
         <h2>{{campaign.name}}</h2>
     </ng-container>
