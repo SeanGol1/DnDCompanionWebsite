@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { Player } from 'src/app/_models/player';
 import { User } from 'src/app/_models/user';
@@ -17,7 +17,7 @@ export class PlayerDetailsComponent implements OnInit{
   isCreator: Boolean | undefined;
 
 
-  constructor(private campaignService:CampaignService, private route:ActivatedRoute,private accountService:AccountService){}
+  constructor(private campaignService:CampaignService, private route:ActivatedRoute,private accountService:AccountService, private router: Router){}
   
   ngOnInit(): void {
     this.loadPlayer();
@@ -54,7 +54,7 @@ export class PlayerDetailsComponent implements OnInit{
     if(campaign) {
       this.campaignService.deletePlayer(id).subscribe({
         next: () =>  { 
-          window.location.reload()
+          this.router.navigateByUrl('/campaign'); 
         }
       });
     }
@@ -66,8 +66,6 @@ export class PlayerDetailsComponent implements OnInit{
       this.campaignService.updatePlayer(id).subscribe({
         next: player =>  { 
           this.player = player
-          console.log(this.player)
-          //window.location.reload()
         }
       });
     }
