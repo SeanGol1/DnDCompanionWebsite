@@ -21,8 +21,8 @@ export class CampaignPlayersComponent implements OnInit{
   }
 
   deletePlayer(id:number){
-    var campaign = Number(this.route.snapshot.paramMap.get('id'));
-    if(campaign) {
+    var player = Number(this.route.snapshot.paramMap.get('id'));
+    if(player) {
       this.campaignService.deletePlayer(id).subscribe({
         next: () =>  { 
           window.location.reload()

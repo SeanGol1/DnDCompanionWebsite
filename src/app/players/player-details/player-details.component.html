@@ -17,56 +17,74 @@
                 </div>
             </div>
             <div class="card-footer">
+              <ng-container *ngIf="isCreator">
+                <button (click)="editPlayer(player.id)" class="btn btn-primary"><i class="fa fa-pencil"></i></button>              
+                <ng-container *ngIf="player.dndBeyondPcId">
+                  <button (click)="updatePlayer(player.id)" class="btn btn-primary"><i class="fa fa-refresh"></i></button>
+                </ng-container>
+                <button (click)="deletePlayer(player.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+              </ng-container>
             </div>
         </div>
     </div>
 
     <div class="col-8">
-        <div>
-            <h4>Background</h4>
-            <p>{{player.description}}</p>
-        </div>
-
-        <div class="row" id="stats-div">
-            <div class="container">
-                <table class="table table-hover">
-                    <thead>
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead> 
-                    <tbody>
-                      <tr>
-                        <th scope="row"> STR</th>
-                        <td>{{player.strength}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"> DEX</th>
-                        <td>{{player.dexterity}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"> CON</th>
-                        <td>{{player.constitution}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"> INT</th>
-                        <td>{{player.intelligence}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"> WIS</th>
-                        <td>{{player.wisdom}}</td>
-                      </tr>
-                      <tr>
-                        <th scope="row"> CHA</th>
-                        <td>{{player.charisma}}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                
-            </div>      
-        </div>         
-
-
+      <div class="row">
+        <div class="col-md-3">
+          <h4>Race</h4>
+          <p>{{player.race}}</p>
+        </div>  
+        <div class="col-md-3">
+          <h4>Class</h4>
+          <p>{{player.class}}</p>
+      </div>
     </div>
+    <div>
+        <h4>Background</h4>
+        <p>{{player.description}}</p>
+    </div>
+  
+
+    <div class="row" id="stats-div">
+        <div class="container">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col"></th>
+              </tr>
+            </thead> 
+            <tbody>
+              <tr>
+                <th scope="row"> STR</th>
+                <td>{{player.strength}}</td>
+              </tr>
+              <tr>
+                <th scope="row"> DEX</th>
+                <td>{{player.dexterity}}</td>
+              </tr>
+              <tr>
+                <th scope="row"> CON</th>
+                <td>{{player.constitution}}</td>
+              </tr>
+              <tr>
+                <th scope="row"> INT</th>
+                <td>{{player.intelligence}}</td>
+              </tr>
+              <tr>
+                <th scope="row"> WIS</th>
+                <td>{{player.wisdom}}</td>
+              </tr>
+              <tr>
+                <th scope="row"> CHA</th>
+                <td>{{player.charisma}}</td>
+              </tr>
+            </tbody>
+          </table>
+            
+        </div>      
+    </div>         
+
+
+  </div>
 </div> 

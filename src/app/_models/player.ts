@@ -6,6 +6,7 @@ export interface Player {
   campaignId:number;
   campaignName: string;
   characterSheetLink: string;
+  dndBeyondPcId:string;
   photoUrl: string;
   race:string;
   class: string;
