@@ -33,6 +33,8 @@ import { AddPlayersComponent } from './players/add-players/add-players.component
 import { PlayerDetailsComponent } from './players/player-details/player-details.component';
 import { AddQuestComponent } from './quests/add-quest/add-quest.component';
 import { AddNpcComponent } from './players/add-npc/add-npc.component';
+import { NoteCardComponent } from './notes/note-card/note-card.component';
+import { AddNoteComponent } from './notes/add-note/add-note.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import { AddNpcComponent } from './players/add-npc/add-npc.component';
     AddPlayersComponent,
     PlayerDetailsComponent,
     AddQuestComponent,
-    AddNpcComponent
+    AddNpcComponent,
+    NoteCardComponent,
+    AddNoteComponent
   ],
   imports: [
     BrowserModule,

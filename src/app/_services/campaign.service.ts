@@ -8,6 +8,7 @@ import { BehaviorSubject, map, of, take } from 'rxjs';
 import { Npc } from '../_models/npc';
 import { User } from '../_models/user';
 import { AccountService } from './account.service';
+import { Note } from '../_models/note';
 
 @Injectable({
   providedIn: 'root'
@@ -137,5 +138,19 @@ export class CampaignService {
     quest.questType = 1;
     console.log(quest);
     return this.http.post(this.baseUrl + 'quests', quest).pipe();
+  }
+
+  addNote(note:Note,campaign:number){
+    note.campaignId = campaign; 
+    console.log(note);
+    return this.http.post(this.baseUrl + 'notes/create', note).pipe();
+  }
+
+  deleteNote(id:number){
+    return this.http.delete(this.baseUrl + 'notes/delete/' + id);
+  }
+
+  getNotesByCampaignId(id:number){
+    return this.http.get<Note[]>(this.baseUrl + 'notes/campaign/' + id);
   }
 }

@@ -2,6 +2,7 @@ import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { Campaign } from 'src/app/_models/campaign';
+import { Note } from 'src/app/_models/note';
 import { Npc } from 'src/app/_models/npc';
 import { Player } from 'src/app/_models/player';
 import { Quest } from 'src/app/_models/quest';
@@ -19,6 +20,7 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
   campaign : Campaign  | undefined;
   user: User |  null = null;
   players: Player[] = []; 
+  notes: Note[] = []; 
   quests: Quest[] = [];
   npcs: Npc[]=[];
   mainQuests : Quest[] = [];
@@ -36,6 +38,7 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
   ngOnInit(): void {
     this.loadCampaign();    
     this.loadPlayers();
+    this.loadNotes();
   }
 
   loadCampaign(){       
@@ -59,6 +62,15 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
     if(campaign){
       this.campaignService.getPlayersByCampaignId(campaign).subscribe({
         next: players=> this.players = players
+      });
+    }
+  }
+
+  loadNotes(){
+    var campaign = Number(this.route.snapshot.paramMap.get('id'));
+    if(campaign){
+      this.campaignService.getNotesByCampaignId(campaign).subscribe({
+        next: notes=> this.notes = notes
       });
     }
   }

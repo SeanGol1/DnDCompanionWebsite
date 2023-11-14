@@ -1,0 +1,13 @@
+<div id="note" class="row fantasy-border" *ngIf="note" >
+    <div class="row">
+        <div class="col-md-10">           
+            <h3>{{note.title}}</h3>
+            <p>{{note.description}}</p> 
+            <strong>{{note.sessionDate}}</strong>           
+        </div>
+        <div class="col-md-2" *ngIf="isAdmin">
+            <button class="btn btn-primary" (click)="deleteNote(note.id)"><i class="fa fa-trash"></i> Delete Note</button>
+            <!-- <button class="btn btn-primary" (click)="toggleNoteVisibility(quest.id)"><i class="fa fa-eye"></i> Make Visible</button> -->
+        </div>
+    </div>
+</div>
