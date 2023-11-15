@@ -35,6 +35,7 @@ import { AddQuestComponent } from './quests/add-quest/add-quest.component';
 import { AddNpcComponent } from './players/add-npc/add-npc.component';
 import { NoteCardComponent } from './notes/note-card/note-card.component';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
+import { NpcDetailsComponent } from './npcs/npc-details/npc-details.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { AddNoteComponent } from './notes/add-note/add-note.component';
     AddQuestComponent,
     AddNpcComponent,
     NoteCardComponent,
-    AddNoteComponent
+    AddNoteComponent,
+    NpcDetailsComponent
   ],
   imports: [
     BrowserModule,

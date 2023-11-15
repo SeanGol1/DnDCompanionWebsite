@@ -59,6 +59,10 @@ export class CampaignService {
     return this.http.get<Player>(this.baseUrl + 'campaign/player/' + id);
   }
 
+  getNpcById(id:number){
+    return this.http.get<Npc>(this.baseUrl + 'campaign/npc/' + id);
+  }
+
   deletePlayer(id:number){
     return this.http.delete(this.baseUrl + 'campaign/player/delete/' + id);
   }

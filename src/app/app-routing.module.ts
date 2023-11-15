@@ -16,8 +16,8 @@ import { preventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.gu
 import { AddPlayersComponent } from './players/add-players/add-players.component';
 import { PlayerDetailsComponent } from './players/player-details/player-details.component';
 import { AddQuestComponent } from './quests/add-quest/add-quest.component';
-import { NoteCardComponent } from './notes/note-card/note-card.component';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
+import { NpcDetailsComponent } from './npcs/npc-details/npc-details.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -32,6 +32,7 @@ children:[
   {path: 'campaign', component: CampaignListComponent},
   {path: 'campaign/:id', component: CampaignDetailComponent},
   {path: 'players/:id', component: PlayerDetailsComponent},
+  {path: 'npc/:id', component: NpcDetailsComponent},
   {path: 'quests/add/:id',component:AddQuestComponent, canDeactivate: [preventUnsavedChangesGuard]},
   {path: 'npc/add/:id',component:AddPlayersComponent, canDeactivate: [preventUnsavedChangesGuard]},
   {path: 'notes/add/:id',component:AddNoteComponent, canDeactivate: [preventUnsavedChangesGuard]}

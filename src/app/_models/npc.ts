@@ -1,6 +1,7 @@
 export interface Npc {
     id:number;
     campaignId:number;
+    campaignName:string;
     characterName : string;
     photoUrl : string;
     livesIn: string;
@@ -16,3 +17,4 @@ export interface Npc {
   charisma : string;
   
 }
+

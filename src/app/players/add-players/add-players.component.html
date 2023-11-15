@@ -5,7 +5,10 @@
         </div>
         <form #editForm="ngForm" id="editForm" (ngSubmit)="addPlayer()">
             <h4 class="mt-2">Character Sheet Link</h4>
-            <p>Export you character from DnD Beyond, paste the PDF link into the below box </p>
+            <p>Export you character from DnD Beyond, paste the character link into the below box. 
+                You can get the character URL by opening up your character in DnD Beyond and then copy the URL link at the top of the screen. e.g. https://www.dndbeyond.com/characters/1234567
+                Or you can go to edit character, and then click the "Whats Next" tab. Click Export PDF and then copy the pdf link from the box. e.g. www.dndbeyond.com/sheet-pdfs/user-10010010_1234567.pdf
+            </p>
             <textarea class="form-control"
                 [(ngModel)]="player.characterSheetLink"
                 name="characterSheetLink"
