@@ -3,7 +3,7 @@
         <div class="col-md-10">           
             <h3>{{note.title}}</h3>
             <p>{{note.description}}</p> 
-            <strong>{{note.sessionDate}}</strong>           
+            <strong>{{note.sessionDate | date:'dd-MM-yyyy'}}</strong>           
         </div>
         <div class="col-md-2" *ngIf="isAdmin">
             <button class="btn btn-primary" (click)="deleteNote(note.id)"><i class="fa fa-trash"></i> Delete Note</button>
