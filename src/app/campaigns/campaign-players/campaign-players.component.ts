@@ -41,6 +41,7 @@ export class CampaignPlayersComponent implements OnInit{
     
   }
 
+
   deletePlayer(id:number){
     var player = Number(this.route.snapshot.paramMap.get('id'));
     if(player) {

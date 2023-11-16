@@ -17,7 +17,7 @@ export class NpcCardComponent implements OnInit{
   }
 
   toggleNpcVisibility(id:number){
-
+    // TODO: Toggle noc visibility 
   }
 
 
