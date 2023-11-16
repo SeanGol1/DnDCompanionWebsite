@@ -25,6 +25,11 @@ export class CampaignQuestComponent {
   }
   
   toggleQuestVisibility(id:number){
-    console.log("Vis");
+    this.campaignService.toggleNoteVisibility(id).subscribe({
+      next: () =>  {         
+        this.toastr.success('Changed Visibility Successfully');
+        window.location.reload();
+      }
+    });
   }
 }

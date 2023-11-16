@@ -131,8 +131,8 @@ export class CampaignService {
     return this.http.delete(this.baseUrl + 'quests/delete/' + id);
   }
 
-  toggleNoteVisibility(quest:Quest){
-    return this.http.post(this.baseUrl + 'quest/toggleVisibility' ,quest);
+  toggleNoteVisibility(id:number){
+    return this.http.get(this.baseUrl + 'quests/togglevis/' + id);
   }
 
   addQuest(quest:Quest,campaign:number){
