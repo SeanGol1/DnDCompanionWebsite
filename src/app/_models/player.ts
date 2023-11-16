@@ -10,7 +10,10 @@ export interface Player {
   photoUrl: string;
   race:string;
   class: string;
+  secondaryClass: string;
   description: string;
+  backgroundName:string;
+  backgroundDescription : string;
   strength : string;
   dexterity : string;
   constitution : string;

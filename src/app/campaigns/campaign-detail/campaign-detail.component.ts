@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { Campaign } from 'src/app/_models/campaign';
@@ -16,7 +16,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
   styleUrls: ['./campaign-detail.component.css']
 })
 
-export class CampaignDetailComponent implements OnInit,AfterViewInit{
+export class CampaignDetailComponent implements OnInit{
   campaign : Campaign  | undefined;
   user: User |  null = null;
   players: Player[] = []; 
@@ -26,33 +26,51 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
   mainQuests : Quest[] = [];
   sideQuests : Quest[] = [];
   isAdmin: boolean = false;
+  isDm: boolean = false;
+  isCreator: boolean = false;
 
-  constructor(private campaignService:CampaignService, private accountService:AccountService,private route: ActivatedRoute){
+  constructor(private campaignService:CampaignService, private accountService:AccountService,private route: ActivatedRoute,private elementRef: ElementRef){
   }
 
-  ngAfterViewInit(): void {
-    // this.loadCampaign();    
-    // this.loadPlayers();
-  }
+  
 
-  ngOnInit(): void {
+  ngOnInit(): void {  
+    
+    if(this.campaign){
+      if(this.campaign.id != Number(this.route.snapshot.paramMap.get('id'))){
+        location.reload();
+      }
+    }
     this.loadCampaign();    
     this.loadPlayers();
     this.loadNotes();
   }
 
-  loadCampaign(){       
-    var campaign = Number(this.route.snapshot.paramMap.get('id'));
-    if(campaign) {
-      this.campaignService.getCampaignById(campaign).pipe(take(1)).subscribe({
+  ngOnDestroy(): void{
+    console.log("Destoy");
+    this.clearLists();
+    location.reload();
+  }
+
+  loadCampaign(){      
+    var campaignid = Number(this.route.snapshot.paramMap.get('id'));    
+    if(campaignid) {
+      this.campaignService.getCampaignById(campaignid).pipe(take(1)).subscribe({
         next: campaign=> {
-          this.campaign = campaign
-          console.log("loading quest/npc. with " + campaign.name)
+          this.campaign = campaign         
           this.loadQuests(campaign);
           this.loadNpcs(campaign);
         }
       });
     }
+  }
+
+  clearLists(){
+    console.log("Clearing lists");
+    this.elementRef.nativeElement.remove();
+    this.quests = [];
+    this.mainQuests = [];
+    this.sideQuests = [];
   }
 
 
@@ -61,7 +79,10 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
     var campaign = Number(this.route.snapshot.paramMap.get('id'));
     if(campaign){
       this.campaignService.getPlayersByCampaignId(campaign).subscribe({
-        next: players=> this.players = players
+        next: players=> {this.players = players
+          
+        
+        }
       });
     }
   }
@@ -83,12 +104,12 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
           this.accountService.currentUser$.pipe(take(1)).subscribe({
             next: user=> {
               this.user = user
-              if(this.campaign?.adminUser == this.user?.username ){
-                this.isAdmin = true;
+              if(this.campaign?.adminUser === this.user?.username ){
+                this.isDm = true;
                 this.npcs = npcs;
               } 
               else{
-                this.isAdmin = false;
+                this.isDm = false;
                 this.npcs = npcs.filter((npc:Npc) => npc.isVisible == true);       
               }
 
@@ -102,19 +123,20 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
   }
 
   loadQuests(campaign:Campaign){
-    if(campaign){
+    var campaignId = Number(this.route.snapshot.paramMap.get('id'));
+    if(campaign){      
       this.campaignService.getQuestsByCampaignId(campaign.id).subscribe({
         next: quests=>  {
           this.quests = quests
           this.accountService.currentUser$.pipe(take(1)).subscribe({
             next: user=> {
               this.user = user
-              if(this.campaign?.adminUser == this.user?.username ){
-                this.isAdmin = true;
+              if(this.campaign?.adminUser === this.user?.username ){
+                this.isDm = true;
                 this.getDmQuests();        
               } 
               else{
-                this.isAdmin = false;
+                this.isDm = false;
                 this.getQuests();        
               }
             }
@@ -126,13 +148,11 @@ export class CampaignDetailComponent implements OnInit,AfterViewInit{
   }
 
   getQuests(){
-    console.log("Load Non Dm Quests");
     this.mainQuests = this.quests.filter((quest:Quest) => quest.questType == 1).filter((quest:Quest)=> quest.isVisible == true); 
     this.sideQuests = this.quests.filter((quest:Quest) => quest.questType == 2).filter((quest:Quest)=> quest.isVisible == true);
   }
 
   getDmQuests(){
-    console.log("Load DM Quests");
     this.mainQuests = this.quests.filter((quest:Quest) => quest.questType == 1);
     this.sideQuests = this.quests.filter((quest:Quest) => quest.questType == 2);
   }

@@ -12,8 +12,10 @@
     </ul>
     <div class="card-body p-1">
         <h6 class="card-title text-center mb-1">
-            {{player.characterName}}
+            {{player.characterName}} 
         </h6>
+        <p> {{player.race}} </p>
+        <p>{{player.class}} <ng-container *ngIf="player.secondaryClass">/ {{player.secondaryClass}}</ng-container></p>
         <p class="card-text text-muted text-center">{{player.userName}}</p>
     </div>
 </div>

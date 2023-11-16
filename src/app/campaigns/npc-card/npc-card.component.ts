@@ -8,11 +8,16 @@ import { Npc } from 'src/app/_models/npc';
 })
 export class NpcCardComponent implements OnInit{
   @Input() npc : Npc  | undefined;
+  @Input() isAdmin : Boolean  | undefined;
 
   constructor(){}
   
   ngOnInit(): void {
     
+  }
+
+  toggleNpcVisibility(id:number){
+
   }
 
 

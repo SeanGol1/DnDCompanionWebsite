@@ -1,9 +1,9 @@
 <div class="card" *ngIf="campaign">
     <div class="card-img-wrapper">
         <!-- <img src="{{campaign.photoUrl}}" alt="{{campaign.knownAs}}" class="card-img-top "> -->
+    <h2>{{campaign.name}}</h2>
     <ng-container *ngIf="isAdmin">
-        <h3><strong>DM</strong></h3>
-        <h2>{{campaign.name}}</h2>
+        <strong>DM</strong>       
     </ng-container>
         <ul class="list-inline member-icons animate text-center">
             <li class="list-inline-item">

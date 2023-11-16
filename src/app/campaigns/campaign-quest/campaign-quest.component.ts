@@ -16,7 +16,6 @@ export class CampaignQuestComponent {
   constructor(private campaignService:CampaignService,private toastr:ToastrService){}
 
   deleteQuest(id:number){
-    console.log("Delete");
     this.campaignService.deleteQuest(id).subscribe({
       next: () =>  { 
         this.toastr.success('Quest Deleted Successfully');

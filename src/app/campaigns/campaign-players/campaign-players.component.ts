@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { take } from 'rxjs';
 import { Player } from 'src/app/_models/player';
+import { User } from 'src/app/_models/user';
+import { AccountService } from 'src/app/_services/account.service';
 import { CampaignService } from 'src/app/_services/campaign.service';
 
 @Component({
@@ -10,11 +13,28 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 })
 export class CampaignPlayersComponent implements OnInit{
   @Input() player : Player  | undefined;
-  @Input() isAdmin : Boolean  | undefined;
-  constructor(private campaignService:CampaignService, private route: ActivatedRoute){}
+  isAdmin : Boolean  | undefined;
+  user : User  | null = null;
+
+  constructor(private campaignService:CampaignService,private accountService:AccountService, private route: ActivatedRoute){}
 
   ngOnInit(): void {
     
+    this.isCreator();
+  }
+
+  isCreator(){
+    this.accountService.currentUser$.pipe(take(1)).subscribe({
+      next: user=> {
+        this.user = user;
+        if(this.player?.userName == this.user?.username){
+          this.isAdmin = true;
+        } 
+        else{
+          this.isAdmin = false;      
+        }
+      }
+    });
   }
 
   getDmName(){

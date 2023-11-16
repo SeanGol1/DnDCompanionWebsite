@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Route, Router } from '@angular/router';
 import { take } from 'rxjs';
 import { Campaign } from 'src/app/_models/campaign';
@@ -11,9 +11,9 @@ import { CampaignService } from 'src/app/_services/campaign.service';
   styleUrls: ['./campaign-card.component.css']
 })
 
-export class CampaignCardComponent {
+export class CampaignCardComponent implements OnInit {
   @Input() campaign : Campaign  | undefined;
-  isAdmin: boolean | undefined; 
+  isAdmin: boolean | undefined = false; 
   constructor(public accountService:AccountService, private campaignService:CampaignService, private router:Router, private route:ActivatedRoute){}
 
   ngOnInit(): void {
@@ -23,11 +23,8 @@ export class CampaignCardComponent {
   checkIsAdmin(){
     this.accountService.currentUser$.pipe(take(1)).subscribe({
       next: user=> {
-        console.log("isAdmin " + this.campaign?.adminUser + " " + user?.username)
-        if(user?.username == this.campaign?.adminUser){
-          this.isAdmin == true;
-          console.log("isAdmin " + this.isAdmin)
-          
+        if(user?.username === this.campaign?.adminUser){
+          this.isAdmin = true;          
         }
       }
     });
