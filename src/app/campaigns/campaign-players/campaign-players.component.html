@@ -16,6 +16,6 @@
         </h6>
         <b> {{player.race}} </b><br>
         <b>{{player.class}} <ng-container *ngIf="player.secondaryClass">/ {{player.secondaryClass}}</ng-container></b>
-        <p class="card-text text-muted text-center">{{player.userName}}</p>
+        <p class="card-text text-muted text-center">{{player.userName | titlecase}}</p>
     </div>
 </div>
