@@ -28,6 +28,7 @@ export class CampaignDetailComponent implements OnInit{
   isAdmin: boolean = false;
   isDm: boolean = false;
   isCreator: boolean = false;
+  activeTab: string = "about";
 
   constructor(private campaignService:CampaignService, private accountService:AccountService,private route: ActivatedRoute,private elementRef: ElementRef){
   }
@@ -52,6 +53,11 @@ export class CampaignDetailComponent implements OnInit{
     location.reload();
   }
 
+
+  tabChange(tab:string){
+    this.activeTab = tab;
+  }
+  
   loadCampaign(){      
     var campaignid = Number(this.route.snapshot.paramMap.get('id'));    
     if(campaignid) {

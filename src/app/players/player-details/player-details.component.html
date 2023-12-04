@@ -39,10 +39,28 @@
           <p>{{player.class}} <ng-container *ngIf="player.secondaryClass">/ {{player.secondaryClass}}</ng-container></p>
       </div>
     </div>
+
     <div>
         <h4>Backstory</h4>
         <p>{{player.description}}</p>
     </div>
+
+   
+    <div class="row ">
+      <h4>Stats</h4>
+          <div class="col-6">
+            <p><b> STR: </b>{{player.strength}}</p>
+            <p><b> DEX: </b>{{player.dexterity}}</p>
+            <p><b> CON: </b>{{player.constitution}}</p>
+          </div>
+          <div class="col-6">
+            <p><b> INT: </b>{{player.intelligence}}</p>
+            <p><b> WIS: </b>{{player.wisdom}}</p>
+            <p><b> CHA: </b>{{player.charisma}}</p> 
+        </div>     
+                
+    </div> 
+
     <div>
       <h4>Background</h4>
       <h6>{{player.backgroundName}}</h6>
@@ -50,46 +68,7 @@
       
   </div>
   
-    <h4>Stats</h4>
-    <div class="row" id="stats-div">
-        <div class="container">
-          <table class="table table-hover">
-            <thead>
-              <tr>
-                <th scope="col"></th>
-                <th scope="col"></th>
-              </tr>
-            </thead> 
-            <tbody>
-              <tr>
-                <th scope="row"> STR</th>
-                <td>{{player.strength}}</td>
-              </tr>
-              <tr>
-                <th scope="row"> DEX</th>
-                <td>{{player.dexterity}}</td>
-              </tr>
-              <tr>
-                <th scope="row"> CON</th>
-                <td>{{player.constitution}}</td>
-              </tr>
-              <tr>
-                <th scope="row"> INT</th>
-                <td>{{player.intelligence}}</td>
-              </tr>
-              <tr>
-                <th scope="row"> WIS</th>
-                <td>{{player.wisdom}}</td>
-              </tr>
-              <tr>
-                <th scope="row"> CHA</th>
-                <td>{{player.charisma}}</td>
-              </tr>
-            </tbody>
-          </table>
-            
-        </div>      
-    </div>         
+      
 
 
   </div>

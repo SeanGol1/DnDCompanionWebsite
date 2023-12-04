@@ -97,6 +97,10 @@
     background-color: rgba(255, 255, 255, 0.000);
   }
 
+  table{
+    background-color: rgba(0, 0, 0, 0);
+  }
+
   .app-content{
     padding: 5% 25%;
     padding-bottom:20%;
@@ -157,9 +161,35 @@
   
   /* background-color: transparent; */
 }
+/* .mobile-remove{
+  display: block; 
+}*/
 
-button{
-  color: transparent;
+@media only screen and (max-width: 600px)  {
+  .mobile-remove{
+    display: none;
+
+}
+  .navbar-brand, .navbar{
+    font-size:12px;
+  }
+
+  
+} 
+
+.btn-tab{
+  background-color: rgba(0, 0, 0, 0);
+  font: bold;
+  border: 2px solid rgb(110, 13, 27); /*Dark purple border color */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  box-shadow: 0 0 10px rgba(110, 13, 27, 0.5);
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-tab:hover{
+  background-color: rgba(139, 27, 27, .5);
+  
 }
 
 .app-content > h3{
@@ -171,7 +201,7 @@ button{
   margin: 10px;
   margin-bottom: 20px;
   z-index: 0;
-   border: 2px solid rgb(110, 13, 27); /*Dark purple border color */
+  border: 2px solid rgb(110, 13, 27); /*Dark purple border color */
   border-radius: 10px; /* Rounded corners for a softer look */
   box-shadow: 0 0 10px rgba(110, 13, 27, 0.5); /* A subtle magical glow */
   padding: 20px; /* Add some spacing inside the div */

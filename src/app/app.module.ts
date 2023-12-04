@@ -36,6 +36,7 @@ import { AddNpcComponent } from './players/add-npc/add-npc.component';
 import { NoteCardComponent } from './notes/note-card/note-card.component';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
 import { NpcDetailsComponent } from './npcs/npc-details/npc-details.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { NpcDetailsComponent } from './npcs/npc-details/npc-details.component';
     AddNpcComponent,
     NoteCardComponent,
     AddNoteComponent,
-    NpcDetailsComponent
+    NpcDetailsComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

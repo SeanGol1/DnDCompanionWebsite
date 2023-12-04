@@ -34,6 +34,8 @@ export class HomeComponent {
 
       return this.user;
   }
+
+
   
   registerToggle(){
     this.registerMode = !this.registerMode;

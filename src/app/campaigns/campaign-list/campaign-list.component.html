@@ -1,6 +1,13 @@
 <div class="row">
+    <ng-container *ngIf="campaigns.length > 0">
     <div class="col-lg-3" *ngFor="let campaign of campaigns">
         <app-campaign-card [campaign]="campaign"></app-campaign-card>
     </div>
+    </ng-container>
+    <ng-container *ngIf="campaigns.length == 0">
+        <div>
+            <p>You have no campaigns yet...</p>
+        </div>
+        </ng-container>
     
 </div>
