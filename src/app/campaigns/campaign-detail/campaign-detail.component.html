@@ -1,7 +1,7 @@
 <div class="row" *ngIf="campaign">
-    <div class="col-lg-4">
+    <!-- <div class="col-lg-4">
         <div class="card">
-            <!-- <img src="{{campaign.photoUrl || './assets/user.png'}}" alt="{{campaign.knownAs}}" class="card-img-top img-thumbnail"> -->
+            <img src="{{campaign.photoUrl || './assets/user.png'}}" alt="{{campaign.knownAs}}" class="card-img-top img-thumbnail"> 
             <div class="card-body">
                 <div>
                     <h2>{{campaign.name}}</h2>
@@ -25,13 +25,34 @@
             <div class="card-footer">
             </div>
         </div>
-    </div>
+    </div> -->
 
-    <div class="col-lg-8">
+    <div class="col-lg-12">
         <tabset class="member-tabset">
             <tab heading="About" class="tabset">                
-                <h3>Description</h3>
-                <p>{{campaign.description}}</p>
+                <div>
+                    <h2>{{campaign.name}}</h2>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <strong>Description</strong>
+                        <p>{{campaign.description}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <strong>Campaign Id:</strong>
+                        <p>{{campaign.id}}</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <strong>DM:</strong>
+                        <p>{{campaign.adminUser | titlecase}}</p>
+                    </div>
+                    <div class="col-sm-6">
+                        <strong>Campaign Started:</strong>
+                    <p>{{campaign.createDate}}</p>
+                    </div>
+                </div>
                 <div class="row">
                     <h3 class="col-md-9">Session Notes</h3>
                     <div class="col-md-3" *ngIf="isDm">
