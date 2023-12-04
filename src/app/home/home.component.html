@@ -9,32 +9,49 @@
         </div>
     </div>-->
 
+
+
     <div *ngIf="!(accountService.currentUser$| async)">
         <div class="row justify-content-center">
-            <div class="col-8">
+            <div class="col-md-8">
                 <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
             </div>
         </div>
     </div>  
     <div class="container" *ngIf="(accountService.currentUser$| async)">
         <div class="row justify-content-center">
-        <div class="col-md-6">
-            <h2>Join Campaign</h2>
-            <input type="text" id="campaignId" [(ngModel)]="id" placeholder="Enter Campaign Code"/>
-            <button class="btn btn-outline-success" (click)="join()">Join</button>
+            <div class="col-lg-6">
+                <h2>Join Campaign</h2>
+                <input type="text" id="campaignId" [(ngModel)]="id" placeholder="Enter Campaign Code"/>
+                <button class="btn btn-success" (click)="join()">Join</button>
+            </div>
+            
+            <div class="col-lg-6">
+                <h2>Create Campaign</h2>
+                <input type="text" id="campaignName" [(ngModel)]="name" placeholder="Enter Name"/><br>
+                <input type="text" id="campaignDescription" [(ngModel)]="description" placeholder="Enter Description"/>
+                <button class="btn btn-success" (click)="create()">Create</button>
+            </div>
         </div>
-        
-        <div class="col-md-6">
-            <h2>Create Campaign</h2>
-            <input type="text" id="campaignName" [(ngModel)]="name" placeholder="Enter Name"/><br>
-            <input type="text" id="campaignDescription" [(ngModel)]="description" placeholder="Enter Description"/>
-            <button class="btn btn-outline-success" (click)="create()">Create</button>
-        </div>
-    </div>
         <hr>
         <div>
             <h1>Campaign List</h1>
             <app-campaign-list></app-campaign-list>
         </div>
+    </div>
+    <div class="">
+        <p>🛡️ <b>Embark on Epic Adventures:</b> Dive into a world of magic, monsters, and mystery as you join our Dungeons and Dragons campaign. Explore ancient dungeons, face mythical creatures, and forge your own legend in a realm where the fate of nations hangs in the balance.</p>
+
+        <p>🌍 <b>Immersive World-Building:</b> Our campaign unfolds in a meticulously crafted universe, complete with diverse landscapes, rich histories, and enigmatic cultures. From bustling cities to forgotten ruins, every corner of our world is teeming with untold stories waiting to be unraveled.</p>
+            
+        <p>🎲 <b>Tailored Gameplay:</b> Whether you're a seasoned adventurer or a newcomer to the realm, our Dungeon Masters curate an experience that suits your playstyle. Engage in dynamic role-playing, strategic combat, and decision-making that shapes the course of the narrative. Your choices matter, and the consequences are as real as the treasures you seek.</p>
+            
+        <p>👥 <b>Join a Community of Heroes:</b> Connect with fellow adventurers who share your passion for storytelling and fantasy. Forge alliances, plan strategies, and celebrate victories together. Our vibrant community welcomes players of all experience levels, fostering a supportive environment where everyone can thrive.</p>
+            
+        <p>📅 <b>Scheduled Campaigns and One-Shots:</b> We offer regular campaigns for those seeking long-term commitment, as well as exciting one-shots for those who prefer shorter adventures. With a variety of themes and settings, there's always something new to discover in the Campaign Companion.</p>
+            
+        <p>🖌️ <b>Character Customization:</b> Unleash your creativity and bring your character to life with our in-depth customization options. From unique backstories to personalized abilities, every adventurer is as distinct as the tales they weave.</p>
+            
+        <p>📜 <b>Access to Resources:</b> Whether you're a Dungeon Master crafting an epic narrative or a player fine-tuning your character sheet, our website provides a wealth of resources, guides, and tools to enhance your Dungeons and Dragons experience.</p>
     </div>
 </div>

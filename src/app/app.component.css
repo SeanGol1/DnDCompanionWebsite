@@ -1,5 +1,17 @@
 #app-div{
     padding: 0px 100px; 
     margin-top: 100px;
+    
 }
+
+#backborder{
+    background:  rgba(252, 242, 254, 0.801);;
+    border: 2px black solid;
+    border-radius: 25px;
+    padding: 10px;
+    
+    
+}
+
+
 

@@ -1,3 +1,10 @@
 .dropdown-toggle,.dropdown-item {
     cursor: pointer;
 }
+.navbar{
+    /* position: fixed; */
+    max-height: 50px;
+    top: 0;
+    left: 0;
+    opacity: .8;
+}

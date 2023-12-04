@@ -7,10 +7,10 @@
             </li>
             <ng-container *ngIf="isAdmin">
             <li class="list-inline-item" *ngIf="!npc.isVisible">
-                <button class="btn btn-primary" (click)="toggleNpcVisibility(npc.id)"><i class="fa fa-eye-slash"></i></button>
+                <button class="btn btn-warning" (click)="toggleNpcVisibility(npc.id)"><i class="fa fa-eye-slash"></i></button>
             </li>
             <li class="list-inline-item" *ngIf="npc.isVisible">
-                <button class="btn btn-primary" (click)="toggleNpcVisibility(npc.id)"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-success" (click)="toggleNpcVisibility(npc.id)"><i class="fa fa-eye"></i></button>
             </li>
         </ng-container>
         </ul>

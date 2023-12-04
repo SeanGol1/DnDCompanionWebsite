@@ -6,7 +6,7 @@
   }
   
   .nav-tabs > li.open, .member-tabset > .nav-tabs > li:hover {
-    border-bottom: 4px solid #fbcdcf;
+    border-bottom: 4px solid #761319;
   }
   
   .member-tabset > .nav-tabs > li.open > a, .member-tabset > .nav-tabs > li:hover > a {
@@ -39,11 +39,112 @@
   
   .member-tabset > .tab-content {
     margin-top: -3px;
-    background-color: #fff;
+    /* background-color: #fff; */
     border: 0;
-    border-top: 1px solid #eee;
+    /* border-top: 1px solid #eee; */
     padding: 15px 0;
   }
 
+  body{
+    background: url("assets/images/background.jpg");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position-x: center; 
+    background-attachment: fixed;
+    color: black;
+    
+  }
+
+  @media only screen and (max-width: 800px) {
+    body{
+      background: url("assets/images/background_min.jpg");
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position-x: center; 
+      background-attachment: fixed;
+      color: black;
+      
+    }
+  }
+
+  .scroll-background{
+    background-image: url("assets/images/scroll-background.png") ;
+    background-size: 80% auto;
+    background-repeat: no-repeat;
+    background-position-x: center; 
+    background-attachment: fixed;
+    padding: 0% 0% ;
 
 
+  }
+
+  @media only screen and (max-width: 800px) {
+    .scroll-background {
+      background:  rgba(252, 242, 254, 0.801);
+      border: 2px black solid;
+      border-radius: 25px;
+      padding: 10px;
+    }
+  }
+
+  .card{
+    background-color: rgba(0, 0, 0, 0);
+    color: #000;
+    opacity: 100;
+  }
+
+  .member-tabset{
+    background-color: rgba(255, 255, 255, 0.000);
+  }
+
+  .app-content{
+    padding: 10% 25%;
+    /* margin: auto; */
+    background-image: linear-gradient(
+      transparent 12%,
+      currentColor 30%,
+      currentColor 70%,
+      transparent 85%
+    );
+    background-clip: text;
+    -webkit-background-clip: text; 
+    background-attachment: fixed;
+}
+
+@media only screen and (max-width: 800px) {
+  .app-content{
+    padding: 20% 5%;
+    /* margin: auto; */
+    background-image: linear-gradient(
+      transparent 12%,
+      currentColor 30%,
+      currentColor 70%,
+      transparent 85%
+    );
+    background-clip: text;
+    -webkit-background-clip: text; 
+    background-attachment: fixed;
+}
+}
+
+
+.app-content > .app-content-fade{
+  color: transparent;
+}
+
+.fantasy-border {
+  margin: 10px;
+  z-index: 0;
+   border: 2px solid rgb(110, 13, 27); /*Dark purple border color */
+  /* background-color: #280135; Deep violet background color */
+  border-radius: 10px; /* Rounded corners for a softer look */
+  box-shadow: 0 0 10px rgba(110, 13, 27, 0.5); /* A subtle magical glow */
+  padding: 20px; /* Add some spacing inside the div */
+  /* color: #FFD700; Gold text color */
+
+  /* Fantasy-themed font */
+  /*font-family: 'Cursive', 'fantasy';*/
+
+}
+
+  

@@ -1,5 +1,5 @@
 <div class="row" *ngIf="campaign">
-    <div class="col-md-4">
+    <div class="col-lg-4">
         <div class="card">
             <!-- <img src="{{campaign.photoUrl || './assets/user.png'}}" alt="{{campaign.knownAs}}" class="card-img-top img-thumbnail"> -->
             <div class="card-body">
@@ -27,9 +27,9 @@
         </div>
     </div>
 
-    <div class="col-md-8">
+    <div class="col-lg-8">
         <tabset class="member-tabset">
-            <tab heading="About">                
+            <tab heading="About" class="tabset">                
                 <h3>Description</h3>
                 <p>{{campaign.description}}</p>
                 <div class="row">
@@ -66,7 +66,7 @@
                         <h4 class="col-md-9">Player Characters</h4>
                         <button class="btn btn-success col-md-3" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New PC</button>
                     </div>
-                    <div class="col-4" style="margin-top: 20px;" *ngFor="let player of players">
+                    <div class="col-lg-4 col-md-6" style="margin-top: 20px;" *ngFor="let player of players">
                         <app-campaign-players [player]="player" ></app-campaign-players>
                     </div>      
                 </div>         
@@ -79,7 +79,7 @@
                             <button class="btn btn-success" routerLink="/npc/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New NPC</button>
                         </div>
                     </div>
-                    <div class="col-4" style="margin-top: 20px;" *ngFor="let npc of npcs">
+                    <div class="col-lg-4 col-md-6" style="margin-top: 20px;" *ngFor="let npc of npcs">
                         <app-npc-card  [npc]="npc" [isAdmin] ="isDm"></app-npc-card>
                     </div>   
                 </div>

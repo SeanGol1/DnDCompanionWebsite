@@ -11,12 +11,12 @@
             </ng-container>
         </div>
         <div class="col-md-4" *ngIf="isAdmin">
-            <button class="btn btn-primary" (click)="deleteQuest(quest.id)"><i class="fa fa-trash"></i> Delete Note</button>
+            <button class="btn btn-danger" (click)="deleteQuest(quest.id)"><i class="fa fa-trash"></i> Delete Note</button>
             <ng-container *ngIf="!quest.isVisible">
-                <button class="btn btn-primary" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye-slash"></i></button>
+                <button class="btn btn-warning" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye-slash"></i></button>
             </ng-container>
             <ng-container *ngIf="quest.isVisible">
-                <button class="btn btn-primary" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye"></i></button>
+                <button class="btn btn-success" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye"></i></button>
             </ng-container>
         </div>
     </div>
