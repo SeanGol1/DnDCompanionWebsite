@@ -34,29 +34,28 @@
                     <h2>{{campaign.name}}</h2>
                 </div>
                 <div class="row">
-                    <div class="col-sm-6">
-                        <strong>Description</strong>
-                        <p>{{campaign.description}}</p>
+                    <div class="col-sm-6">                        
+                        <p><strong>Description:</strong> {{campaign.description}}</p>
                     </div>
                     <div class="col-sm-6">
-                        <strong>Campaign Id:</strong>
-                        <p>{{campaign.id}}</p>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <strong>DM:</strong>
-                        <p>{{campaign.adminUser | titlecase}}</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <strong>Campaign Started:</strong>
-                    <p>{{campaign.createDate}}</p>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <p><strong>Campaign Id:</strong> {{campaign.id}}</p>
+                            </div>
+                            <div class="col-sm-6">                                
+                                <p><strong>DM:</strong> {{campaign.adminUser | titlecase}}</p>
+                            </div>
+                            <div class="col-sm-6">                                
+                                <p><strong>Campaign Started:</strong> {{campaign.createDate}}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
+                
                 <div class="row">
-                    <h3 class="col-md-9">Session Notes</h3>
-                    <div class="col-md-3" *ngIf="isDm">
-                        <button class="btn btn-success col-md-9" routerLink="/notes/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New Note</button>
+                    <h3 class="col-sm-9">Session Notes</h3>
+                    <div class="col-sm-3" *ngIf="isDm">
+                        <button class="btn btn-success" routerLink="/notes/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div *ngFor="let note of notes">
@@ -66,9 +65,9 @@
             <tab heading="Quests">
                 <div class="row">
                     <div class="row">
-                        <h3 class="col-md-9">Main Quests</h3>
-                        <div class="col-md-3" *ngIf="isDm">
-                        <button class="btn btn-success col-md-9" routerLink="/quests/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New Quest</button>
+                        <h3 class="col-sm-9">Main Quests</h3>
+                        <div class="col-sm-3" *ngIf="isDm">
+                        <button class="btn btn-success" routerLink="/quests/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
                     <div *ngFor="let quest of mainQuests">
@@ -84,8 +83,10 @@
             <tab heading="Players">
                 <div class="row" id="player-div">
                     <div class="row">
-                        <h4 class="col-md-9">Player Characters</h4>
-                        <button class="btn btn-success col-md-3" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New PC</button>
+                        <h4 class="col-sm-9">Player Characters</h4>
+                        <div class="col-sm-3">
+                            <button class="btn btn-success" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
+                        </div>
                     </div>
                     <div class="col-lg-4 col-md-6" style="margin-top: 20px;" *ngFor="let player of players">
                         <app-campaign-players [player]="player" ></app-campaign-players>
@@ -95,9 +96,9 @@
             <tab heading="NPCs">
                 <div class="row">
                     <div class="row">
-                        <h3 class="col-md-9">NPCs</h3>
-                        <div class="col-md-3" *ngIf="isDm">
-                            <button class="btn btn-success" routerLink="/npc/add/{{campaign.id}}"><i class="fa fa-plus"></i>Add New NPC</button>
+                        <h3 class="col-sm-9">NPCs</h3>
+                        <div class="col-sm-3" *ngIf="isDm">
+                            <button class="btn btn-success" routerLink="/npc/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6" style="margin-top: 20px;" *ngFor="let npc of npcs">

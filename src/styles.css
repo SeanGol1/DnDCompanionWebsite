@@ -99,6 +99,7 @@
 
   .app-content{
     padding: 5% 25%;
+    padding-bottom:20%;
     /* margin: auto; */
     background-image: linear-gradient(
       transparent 12%,
@@ -111,9 +112,15 @@
     background-attachment: fixed;
 }
 
-@media only screen and (max-width: 800px) {
+/* button{
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+} */
+
+@media only screen and (max-width: 600px) {
   .app-content{
-    padding: 20% 5%;
+    padding: 20% 0%;
+    padding-bottom:50% ;
     /* margin: auto; */
     background-image: linear-gradient(
       transparent 12%,
@@ -121,8 +128,25 @@
       currentColor 70%,
       transparent 85%
     );
-    background-clip: text;
-    -webkit-background-clip: text; 
+    /* background-clip: text;
+    -webkit-background-clip: text;  */
+    background-attachment: fixed;
+}
+}
+
+@media only screen and (max-width: 800px) and (min-width:600px) {
+  .app-content{
+    padding: 20% 5%;
+    padding-bottom:50% ;
+    /* margin: auto; */
+    background-image: linear-gradient(
+      transparent 12%,
+      currentColor 30%,
+      currentColor 70%,
+      transparent 100%
+    );
+    /* background-clip: text;
+    -webkit-background-clip: text;  */
     background-attachment: fixed;
 }
 }
@@ -130,13 +154,24 @@
 
 .app-content > .app-content-fade{
   color: transparent;
+  
+  /* background-color: transparent; */
+}
+
+button{
+  color: transparent;
+}
+
+.app-content > h3{
+  color:transparent
+  /* background-color: transparent; */
 }
 
 .fantasy-border {
   margin: 10px;
+  margin-bottom: 20px;
   z-index: 0;
    border: 2px solid rgb(110, 13, 27); /*Dark purple border color */
-  /* background-color: #280135; Deep violet background color */
   border-radius: 10px; /* Rounded corners for a softer look */
   box-shadow: 0 0 10px rgba(110, 13, 27, 0.5); /* A subtle magical glow */
   padding: 20px; /* Add some spacing inside the div */
@@ -145,6 +180,24 @@
   /* Fantasy-themed font */
   /*font-family: 'Cursive', 'fantasy';*/
 
+}
+
+@media only screen and (max-width: 800px) {
+  .fantasy-border {
+    margin: 0px;
+    margin-bottom: 10px;
+    z-index: 0;
+     border: 2px solid rgb(110, 13, 27); /*Dark purple border color */
+    /* background-color: #280135; Deep violet background color */
+    border-radius: 10px; /* Rounded corners for a softer look */
+    box-shadow: 0 0 10px rgba(110, 13, 27, 0.5); /* A subtle magical glow */
+    padding: 20px 0px; /* Add some spacing inside the div */
+    /* color: #FFD700; Gold text color */
+  
+    /* Fantasy-themed font */
+    /*font-family: 'Cursive', 'fantasy';*/
+  
+  }
 }
 
   

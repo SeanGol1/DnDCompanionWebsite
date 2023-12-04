@@ -1,6 +1,6 @@
 <div id="quest" class="row fantasy-border" *ngIf="quest" >
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-lg-10">
             <ng-container *ngIf="!quest.isCompleted">
                 <h6>{{quest.name}}</h6>
                 <p>{{quest.description}}</p>
@@ -10,8 +10,8 @@
                 <p class="completed">{{quest.description}}</p>
             </ng-container>
         </div>
-        <div class="col-md-4" *ngIf="isAdmin">
-            <button class="btn btn-danger" (click)="deleteQuest(quest.id)"><i class="fa fa-trash"></i> Delete Note</button>
+        <div class="col-lg-2" *ngIf="isAdmin">
+            <button class="btn btn-danger" (click)="deleteQuest(quest.id)"><i class="fa fa-trash"></i></button>
             <ng-container *ngIf="!quest.isVisible">
                 <button class="btn btn-warning" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye-slash"></i></button>
             </ng-container>
