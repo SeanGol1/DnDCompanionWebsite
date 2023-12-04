@@ -105,23 +105,19 @@ setBorderOpacity();
       setOpacity();
       setBorderOpacity();
 
-      $(".tabset").tabs({
-      select: function(event, ui) {
-          alert("PRESSED TAB!");
-      }
-    });
+      $("tabset > li").click(function(){
+        setOpacity();
+        setBorderOpacity();
+      })
 
-
-    $(window).on("load", function() { 
-      setOpacity();
-      setBorderOpacity();
-     });
   })
+
   $(window).scroll(function() {
       setOpacity();  
       setBorderOpacity();
   });
  
+
 
 
   $(function () {
