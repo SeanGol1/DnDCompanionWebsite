@@ -1,4 +1,4 @@
-<form *ngIf="!(accountService.currentUser$| async)" #loginForm="ngForm" class="" (ngSubmit)="login()" autocomplete="off">
+<form *ngIf="!(accountService.currentUser$| async)" #loginForm="ngForm" class="" id="login-form" (ngSubmit)="login()" autocomplete="off">
     <h2 class="text-center text-primary">Log In</h2>
     <input 
     name="Username"
@@ -13,6 +13,7 @@
     class="form-control me-2" 
     type="password" 
     placeholder="Password">
-
-    <button class="btn btn-success" style=" text-align: center;" type="submit">Login</button>
+    <div class="text-center">
+        <button class="btn btn-primary" style=" text-align: center;" type="submit">Login</button>
+    </div>
 </form>

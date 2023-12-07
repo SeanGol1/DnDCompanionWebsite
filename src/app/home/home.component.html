@@ -1,42 +1,29 @@
 
 <div class="container">
-    <!--<div *ngIf="!(accountService.currentUser$| async)" style="text-align: center;">
-        <h1>Register Here!</h1>
-        <p class="lead">Sign up to start using the companion app.</p>
-        <div class="text-center">
-            <button (click)="registerToggle()" class="btn btn-primary btn-lg me-2">Register</button>
-            <button class="btn btn-primary btn-info btn-lg me-2">Learn More</button>
-        </div>
-    </div>-->
-
-
-    
-    <div *ngIf="!(accountService.currentUser$| async)">
+    <!-- Login -->
+    <div class="container"  *ngIf="!(accountService.currentUser$| async)">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <app-login></app-login>
             </div>
-        </div>
-    </div>  
-    <div *ngIf="!(accountService.currentUser$| async)">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
+    <!-- Sign Up -->
+            <div class="col-md-6">
                 <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
             </div>
         </div>
-    </div>  
+    </div>
     <div class="container" *ngIf="(accountService.currentUser$| async)">
         <div class="row justify-content-center">
             <div class="col-lg-6">
                 <h2>Join Campaign</h2>
-                <input type="text" id="campaignId" [(ngModel)]="id" placeholder="Enter Campaign Code"/>
+                <input type="text" id="campaignId"  [(ngModel)]="id" placeholder="Enter Campaign Code"/><br>
                 <button class="btn btn-primary" (click)="join()">Join</button>
             </div>
             
             <div class="col-lg-6">
                 <h2>Create Campaign</h2>
-                <input type="text" id="campaignName" [(ngModel)]="name" placeholder="Enter Name"/><br>
-                <input type="text" id="campaignDescription" [(ngModel)]="description" placeholder="Enter Description"/>
+                <input type="text" id="campaignName"  [(ngModel)]="name" placeholder="Enter Name"/><br>
+                <input type="text" id="campaignDescription"  [(ngModel)]="description" placeholder="Enter Description"/><br>
                 <button class="btn btn-primary" (click)="create()">Create</button>
             </div>
         </div>

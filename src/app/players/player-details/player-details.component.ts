@@ -35,7 +35,7 @@ export class PlayerDetailsComponent implements OnInit{
           this.accountService.currentUser$.pipe(take(1)).subscribe({
             next: user=> this.user = user
           });
-          console.log(this.player?.userName + " " +  this.user?.username)
+          //console.log(this.player?.userName + " " +  this.user?.username)
           if(this.player?.userName == this.user?.username ){
             this.isCreator = true;
           } 

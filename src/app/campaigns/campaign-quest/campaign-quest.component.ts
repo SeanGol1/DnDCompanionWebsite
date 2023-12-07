@@ -26,7 +26,10 @@ export class CampaignQuestComponent {
   
   toggleQuestVisibility(id:number){
     this.campaignService.toggleNoteVisibility(id).subscribe({
-      next: () =>  {         
+      next: () =>  {      
+
+        //TODO: change this to update button without reloading page. 
+        this.quest?.isVisible == !this.quest?.isVisible;  
         this.toastr.success('Changed Visibility Successfully');
         window.location.reload();
       }

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, ElementRef, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
 import { Campaign } from 'src/app/_models/campaign';
@@ -16,7 +16,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
   styleUrls: ['./campaign-detail.component.css']
 })
 
-export class CampaignDetailComponent implements OnInit{
+export class CampaignDetailComponent implements OnInit,AfterContentInit{
   campaign : Campaign  | undefined;
   user: User |  null = null;
   players: Player[] = []; 
@@ -33,18 +33,21 @@ export class CampaignDetailComponent implements OnInit{
   constructor(private campaignService:CampaignService, private accountService:AccountService,private route: ActivatedRoute,private elementRef: ElementRef){
   }
 
-  
 
   ngOnInit(): void {  
-    
+
     if(this.campaign){
       if(this.campaign.id != Number(this.route.snapshot.paramMap.get('id'))){
-        location.reload();
+        //location.reload();
       }
     }
     this.loadCampaign();    
     this.loadPlayers();
     this.loadNotes();
+  }
+
+  ngAfterContentInit(): void{
+    this.tabChange('about');
   }
 
   ngOnDestroy(): void{
@@ -56,6 +59,28 @@ export class CampaignDetailComponent implements OnInit{
 
   tabChange(tab:string){
     this.activeTab = tab;
+
+    //TODO: fix this please.. 
+    //let btns = Array.from(document.getElementsByClassName('btn-tab'));
+    // if(btns)
+    // btns.forEach(btn: any => {
+    //   btn.style.backgroundColor = 'rgba(0, 13, 27, 0.5)';
+    // });
+    let btn1 = document.getElementById('btn-about');
+    let btn2 = document.getElementById('btn-pc');
+    let btn3 = document.getElementById('btn-npc');
+    let btn4 = document.getElementById('btn-quest');
+
+    if(btn1 && btn2 && btn3 && btn4){
+      btn1.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+      btn2.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+      btn3.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+      btn4.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+    }
+     
+    let btn = document.getElementById('btn-' + tab)
+    if(btn)
+      btn.style.backgroundColor = 'rgba(110, 13, 27, 0.5)';
   }
   
   loadCampaign(){      

@@ -1,91 +1,10 @@
 <div class="row" *ngIf="campaign">
     <div class="col-lg-12">
-        <!-- <tabset class="member-tabset">
-            <tab heading="About" class="tabset">                
-                <div>
-                    <h2>{{campaign.name}}</h2>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">                        
-                        <p><strong>Description:</strong> {{campaign.description}}</p>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <p><strong>Campaign Id:</strong> {{campaign.id}}</p>
-                            </div>
-                            <div class="col-sm-6">                                
-                                <p><strong>DM:</strong> {{campaign.adminUser | titlecase}}</p>
-                            </div>
-                            <div class="col-sm-6">                                
-                                <p><strong>Campaign Started:</strong> {{campaign.createDate}}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <h3 class="col-sm-9">Session Notes</h3>
-                    <div class="col-sm-3" *ngIf="isDm">
-                        <button class="btn btn-success" routerLink="/notes/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
-                    </div>
-                </div>
-                <div *ngFor="let note of notes">
-                    <app-note-card [note]="note" [isAdmin] ="isDm"></app-note-card>
-                </div>                
-            </tab>
-            <tab heading="Quests">
-                <div class="row">
-                    <div class="row">
-                        <h3 class="col-sm-9">Main Quests</h3>
-                        <div class="col-sm-3" *ngIf="isDm">
-                        <button class="btn btn-success" routerLink="/quests/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
-                        </div>
-                    </div>
-                    <div *ngFor="let quest of mainQuests">
-                        <app-campaign-quest [quest]="quest" [isAdmin] ="isDm"></app-campaign-quest>
-                    </div>
-
-                    <h3>Side Quests</h3>
-                    <div style="margin-top: 20px;" *ngFor="let quest of sideQuests">
-                        <app-campaign-quest [quest]="quest" [isAdmin] ="isDm" ></app-campaign-quest>
-                    </div>    
-                </div> 
-            </tab>
-            <tab heading="Players">
-                <div class="row" id="player-div">
-                    <div class="row">
-                        <h4 class="col-sm-9">Player Characters</h4>
-                        <div class="col-sm-3">
-                            <button class="btn btn-success" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" style="margin-top: 20px;" *ngFor="let player of players">
-                        <app-campaign-players [player]="player" ></app-campaign-players>
-                    </div>      
-                </div>         
-            </tab>
-            <tab heading="NPCs">
-                <div class="row">
-                    <div class="row">
-                        <h3 class="col-sm-9">NPCs</h3>
-                        <div class="col-sm-3" *ngIf="isDm">
-                            <button class="btn btn-success" routerLink="/npc/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6" style="margin-top: 20px;" *ngFor="let npc of npcs">
-                        <app-npc-card  [npc]="npc" [isAdmin] ="isDm"></app-npc-card>
-                    </div>   
-                </div>
-            </tab>
-        </tabset> -->
-
-
         <div class="row tab-header">
-            <button class="btn-tab col-6 col-md-3" (click)="tabChange('about')">About</button>
-            <button class="btn-tab col-6 col-md-3" (click)="tabChange('quest')">Quests</button>
-            <button class="btn-tab col-6 col-md-3" (click)="tabChange('pc')">Players</button>
-            <button class="btn-tab col-6 col-md-3" (click)="tabChange('npc')">NPCs</button>
+            <button id='btn-about' class="btn-tab col-6 col-md-3" (click)="tabChange('about')">About</button>
+            <button id='btn-quest' class="btn-tab col-6 col-md-3" (click)="tabChange('quest')">Quests</button>
+            <button id='btn-pc' class="btn-tab col-6 col-md-3" (click)="tabChange('pc')">Players</button>            
+            <button id='btn-npc' class="btn-tab col-6 col-md-3" (click)="tabChange('npc')">NPCs</button>
         </div>
 
         <div *ngIf="activeTab == 'about'">
@@ -111,8 +30,8 @@
                 </div>
             </div>                
             <div class="row">
-                <h3 class="col-sm-9">Session Notes</h3>
-                <div class="col-sm-3" *ngIf="isDm">
+                <h3 class="col-11">Session Notes</h3>
+                <div class="col-1" *ngIf="isDm">
                     <button class="btn btn-success" routerLink="/notes/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                 </div>
             </div>
@@ -124,8 +43,8 @@
             <div *ngIf="activeTab == 'quest'">
             <div class="row">
                 <div class="row">
-                    <h3 class="col-sm-9">Main Quests</h3>
-                    <div class="col-sm-3" *ngIf="isDm">
+                    <h3 class="col-11">Main Quests</h3>
+                    <div class="col-1" *ngIf="isDm">
                     <button class="btn btn-success" routerLink="/quests/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
@@ -142,12 +61,12 @@
         <div *ngIf="activeTab == 'pc'">
             <div class="row" id="player-div">
                 <div class="row">
-                    <h4 class="col-sm-9">Player Characters</h4>
-                    <div class="col-sm-3">
+                    <h4 class="col-11">Players</h4>
+                    <div class="col-1">
                         <button class="btn btn-success" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" style="margin-top: 20px;" *ngFor="let player of players">
+                <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let player of players">
                     <app-campaign-players [player]="player" ></app-campaign-players>
                 </div>      
             </div>         
@@ -155,12 +74,12 @@
         <div *ngIf="activeTab == 'npc'">
             <div class="row">
                 <div class="row">
-                    <h3 class="col-sm-9">NPCs</h3>
-                    <div class="col-sm-3" *ngIf="isDm">
+                    <h3 class="col-11">NPCs</h3>
+                    <div class="col-1" *ngIf="isDm">
                         <button class="btn btn-success" routerLink="/npc/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6" style="margin-top: 20px;" *ngFor="let npc of npcs">
+                <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let npc of npcs">
                     <app-npc-card  [npc]="npc" [isAdmin] ="isDm"></app-npc-card>
                 </div>   
             </div>
