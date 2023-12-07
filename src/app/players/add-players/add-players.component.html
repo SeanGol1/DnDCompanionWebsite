@@ -2,6 +2,7 @@
 <button class="btn-tab" routerLink="/campaign/{{campaignId}}">Back</button>
 </div>
 <div class="row" *ngIf="player">
+    <div class="col-md-2"></div>
     <div class="col-md-8">
         <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
             <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
@@ -27,10 +28,77 @@
                 name="characterName"
                 rows="1"
                 ></textarea>
+            <h4 class="mt-2">Race</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.race"
+                name="race"
+                rows="1"
+                ></textarea>
+            <h4 class="mt-2">Class</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.class"
+                name="class"
+                rows="1"
+                ></textarea>
+            <h4 class="mt-2">Secondary Class</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.secondaryClass"
+                name="secondaryClass"
+                rows="1"
+                ></textarea>
+            <h4 class="mt-2">Description</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.description"
+                name="description"
+                rows="3"
+                ></textarea>
+            <h4 class="mt-2">Background</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.backgroundDescription"
+                name="backgroundDescription"
+                rows="3"
+                ></textarea>
+            <h4 class="mt-2">Strength</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.strength"
+                name="strength"
+                rows="1"
+                ></textarea>
+            <h4 class="mt-2">Dexterity</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.dexterity"
+                name="dexterity"
+                rows="1"
+                ></textarea>
+            <h4 class="mt-2">Constitution</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.constitution"
+                name="constitution"
+                rows="1"
+                ></textarea>
+            <h4 class="mt-2">Intelligence</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.intelligence"
+                name="intelligence"
+                rows="1"
+                ></textarea>
+            <h4 class="mt-2">Wisdom</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.wisdom"
+                name="wisdom"
+                rows="1"
+                ></textarea>
+            <h4 class="mt-2">Charisma</h4>
+            <textarea class="form-control"
+                [(ngModel)]="player.charisma"
+                name="charisma"
+                rows="1"
+                ></textarea>
 
         </form>
+        <button type="submit" class="btn btn-success col-4" form="editForm">Save Changes</button>
+
     </div>
-    <div class="col-md-4">
-        <button type="submit" class="btn btn-success col-12" form="editForm">Save Changes</button>
-    </div>
+    <div class="col--md-2"></div>
+   
 </div>

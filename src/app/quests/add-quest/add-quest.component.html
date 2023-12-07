@@ -2,10 +2,11 @@
 <button class="btn-tab" routerLink="/campaign/{{campaignId}}">Back</button>
 </div>
 <div class="row" *ngIf="quest">
-    <div class="col-md-8">
+    <div class="col-md-12">
         <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
             <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
         </div>
+        <!-- TODO: add dropdown for Main/Side + visibility -->
         <form #editForm="ngForm" id="editForm" (ngSubmit)="addQuest()">
             <h4 class="mt-2">Quest Title</h4>
             <textarea class="form-control"
@@ -23,8 +24,6 @@
 
 
         </form>
-    </div>
-    <div class="col-md-4">
-        <button type="submit" class="btn btn-success col-12" form="editForm">Save Changes</button>
+        <button type="submit" class="btn btn-success col-8" form="editForm">Save Changes</button>
     </div>
 </div>

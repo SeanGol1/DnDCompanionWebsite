@@ -41,12 +41,18 @@ export class AddPlayersComponent implements OnInit {
   addPlayer(){
     var campaign = Number(this.route.snapshot.paramMap.get('id'));
     if(this.user){
+      console.log(this.editForm?.value);
       this.campaignService.addPlayer(this.editForm?.value,campaign,this.user).subscribe({
-        next: _ => {
+        next: _ => {          
           this.toastr.success('profile updated successfully');
           this.editForm?.reset(this.player);
           this.router.navigateByUrl('/campaign/' + campaign);
+        },
+        error: _ => {
+          this.toastr.error(_);
         }
+        
+        
       });
     }
   }  

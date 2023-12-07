@@ -124,7 +124,13 @@ export class CampaignService {
   addPlayer(player:Player,campaign:number,user: User){
     player.campaignId = campaign;
     player.userName = user.username;
-    return this.http.post(this.baseUrl + 'campaign/addpc', player).pipe();
+    return this.http.post<any>(this.baseUrl + 'campaign/addpc', player).pipe();
+  }
+
+  addNpc(npc:Npc,campaign:number,user: User){
+    npc.campaignId = campaign;
+    //npc.userName = user.username;
+    return this.http.post<any>(this.baseUrl + 'campaign/addnpc', npc).pipe();
   }
 
   deleteQuest(id:number){

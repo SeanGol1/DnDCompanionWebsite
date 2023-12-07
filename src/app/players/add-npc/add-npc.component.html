@@ -1,1 +1,98 @@
-<p>add-npc works!</p>
+<div class="btn-back">
+    <button class="btn-tab" routerLink="/campaign/{{campaignId}}">Back</button>
+    </div>
+    <div class="row" *ngIf="npc">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
+                <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
+            </div>
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="addNpc()">
+                <!-- <h4 class="mt-2">Character Sheet Link</h4>
+                <p> Export you character from DnD Beyond, paste the character URL into the below box.</p>
+                   <p> You can get the character URL by opening up your character in DnD Beyond and then copy the URL link at the top of the screen. e.g. https://www.dndbeyond.com/characters/1234567 </p>
+                   <p> Or you can go to edit character, and then click the "Whats Next" tab. Click Export PDF and then copy the pdf link from the box. e.g. www.dndbeyond.com/sheet-pdfs/user-10010010_1234567.pdf </p>
+    
+                <textarea class="form-control"
+                    [(ngModel)]="player.characterSheetLink"
+                    name="characterSheetLink"
+                    rows="1"
+                    ></textarea>
+    
+                    <hr>
+                    <h1>OR</h1>
+                    <hr> -->
+                <h4 class="mt-2">Character name</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.characterName"
+                    name="characterName"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Race</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.race"
+                    name="race"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Class</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.class"
+                    name="class"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Lives in</h4>
+                <textarea class="form-control"
+                        [(ngModel)]="npc.livesIn"
+                        name="livesIn"
+                        rows="1"
+                        ></textarea>
+                <h4 class="mt-2">Description</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.description"
+                    name="description"
+                    rows="3"
+                    ></textarea>
+                <h4 class="mt-2">Strength</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.strength"
+                    name="strength"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Dexterity</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.dexterity"
+                    name="dexterity"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Constitution</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.constitution"
+                    name="constitution"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Intelligence</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.intelligence"
+                    name="intelligence"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Wisdom</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.wisdom"
+                    name="wisdom"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Charisma</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="npc.charisma"
+                    name="charisma"
+                    rows="1"
+                    ></textarea>
+    
+            </form>
+            <button type="submit" class="btn btn-success col-4" form="editForm">Save Changes</button>
+    
+        </div>
+        <div class="col--md-2"></div>
+       
+    </div>

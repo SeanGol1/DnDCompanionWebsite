@@ -1,6 +1,7 @@
 <div class="row" *ngIf="campaign">
     <div class="col-lg-12">
         <div class="row tab-header">
+            <!-- TODO: Cache the current/last tab -->
             <button id='btn-about' class="btn-tab col-6 col-md-3" (click)="tabChange('about')">About</button>
             <button id='btn-quest' class="btn-tab col-6 col-md-3" (click)="tabChange('quest')">Quests</button>
             <button id='btn-pc' class="btn-tab col-6 col-md-3" (click)="tabChange('pc')">Players</button>            

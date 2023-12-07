@@ -47,9 +47,7 @@ export class HomeComponent {
 
   join(){
     this.user = this.getUser();
-    console.log("Made to Join: " + this.id +" "+ this.user?.username);
     if(this.user && this.id){
-      console.log("!!!Made to Join: " + this.id +" "+ this.user.username);
       this.campaignService.joinCampaign(this.id,this.user.username).subscribe({
         next: () =>  this.router.navigateByUrl('/campaign/'+ this.id)
       });
@@ -58,9 +56,7 @@ export class HomeComponent {
 
   create(){
     this.user = this.getUser();
-    console.log("Made to Join: " + this.name +" "+ this.user?.username);
     if(this.user && this.name && this.description){
-      console.log("!!!Made to Join: " + this.name +" "+ this.user.username);
       this.campaignService.createCampaign(this.name,this.user.username,this.description).subscribe({
         next: campaign =>  this.router.navigateByUrl('/campaign/'+ campaign.id)
       });
