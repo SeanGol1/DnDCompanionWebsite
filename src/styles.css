@@ -192,7 +192,7 @@
   
 }
 
-input[type=text],input[type=password]{
+input[type=text],input[type=password], textarea.form-control{
   background-color: rgba(0, 0, 0, 0);
   font: bold;
   border: 2px solid rgb(110, 13, 27); /*Dark purple border color */
