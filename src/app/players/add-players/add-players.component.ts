@@ -26,6 +26,7 @@ export class AddPlayersComponent implements OnInit {
   description:"",strength:"",dexterity:"",constitution:"",intelligence:"",wisdom:"",charisma:"",race:"",class:"",secondaryClass:"",backgroundDescription:"",backgroundName:""};
   user: User | null = null;
   campaign: Campaign  |  undefined;
+  campaignId : number = 0;
   
   constructor(private accountService:AccountService, private toastr:ToastrService,private campaignService:CampaignService, private route: ActivatedRoute, private router:Router){
     this.accountService.currentUser$.pipe(take(1)).subscribe({
@@ -34,7 +35,7 @@ export class AddPlayersComponent implements OnInit {
   }
   
   ngOnInit(): void {
-
+    this.campaignId = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   addPlayer(){

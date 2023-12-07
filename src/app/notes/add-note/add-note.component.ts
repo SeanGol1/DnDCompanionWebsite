@@ -17,14 +17,14 @@ export class AddNoteComponent implements OnInit{
       $event.returnValue = true;
     }
   }
-
+  campaignId : number = 0;
   note: Note | undefined = {id:0,title:"",description:"",campaignId:0,sessionDate:"",createDate:"",updateDate:""};
 
   constructor(private route:ActivatedRoute, private toastr:ToastrService,private campaignService:CampaignService, private router:Router){
 
   }
   ngOnInit(): void {
-
+    this.campaignId = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   addNote(){

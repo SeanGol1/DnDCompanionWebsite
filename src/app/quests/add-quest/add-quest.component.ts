@@ -20,14 +20,16 @@ export class AddQuestComponent implements OnInit{
       $event.returnValue = true;
     }
   }
+  campaignId : number = 0;
 
   quest: Quest | undefined = {id:0,name:"",description:"",isCompleted:false,isVisible:false,campaignId:0,questType:1};
 
   constructor(private route:ActivatedRoute, private toastr:ToastrService,private campaignService:CampaignService, private router:Router){
 
   }
-  ngOnInit(): void {
 
+  ngOnInit(): void {
+    this.campaignId = Number(this.route.snapshot.paramMap.get('id'));
   }
 
   addQuest(){

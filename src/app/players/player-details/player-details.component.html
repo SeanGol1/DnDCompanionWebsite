@@ -1,10 +1,11 @@
- <h2>View Character</h2>
-  <!-- TODO: Back to campaign button  -->
+ <div class="btn-back">
   <button class="btn-tab" routerLink="/campaign/{{player?.campaignId}}">Back</button>
+ </div>
+
  <div class="row" *ngIf="player">
     <div class="col-md-4">
         <div class="card">
-             <img src="{{player.photoUrl}}" alt="{{player.characterName}}" class="card-img-top img-thumbnail"> 
+             <img src="{{player.photoUrl}}" alt="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg" class=" img-thumbnail"> 
             <div class="card-body">
                 <div>
                     <h2>{{player.characterName}}</h2>
@@ -42,12 +43,6 @@
       </div>
     </div>
 
-    <div>
-        <h4>Backstory</h4>
-        <p>{{player.description}}</p>
-    </div>
-
-   
     <div class="row ">
       <h4>Stats</h4>
           <div class="col-6">
@@ -62,6 +57,13 @@
         </div>     
                 
     </div> 
+    <div>
+        <h4>Backstory</h4>
+        <p>{{player.description}}</p>
+    </div>
+
+   
+    
 
     <div>
       <h4>Background</h4>

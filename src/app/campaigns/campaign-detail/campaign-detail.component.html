@@ -32,7 +32,7 @@
             <div class="row">
                 <h3 class="col-11">Session Notes</h3>
                 <div class="col-1" *ngIf="isDm">
-                    <button class="btn btn-success" routerLink="/notes/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-success btn-add" routerLink="/notes/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                 </div>
             </div>
             <div *ngFor="let note of notes">
@@ -45,7 +45,7 @@
                 <div class="row">
                     <h3 class="col-11">Main Quests</h3>
                     <div class="col-1" *ngIf="isDm">
-                    <button class="btn btn-success" routerLink="/quests/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-success btn-add" routerLink="/quests/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div *ngFor="let quest of mainQuests">
@@ -63,7 +63,7 @@
                 <div class="row">
                     <h4 class="col-11">Players</h4>
                     <div class="col-1">
-                        <button class="btn btn-success" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success btn-add" routerLink="/players/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let player of players">
@@ -76,7 +76,7 @@
                 <div class="row">
                     <h3 class="col-11">NPCs</h3>
                     <div class="col-1" *ngIf="isDm">
-                        <button class="btn btn-success" routerLink="/npc/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success btn-add" routerLink="/npc/add/{{campaign.id}}"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let npc of npcs">

@@ -1,10 +1,10 @@
-
-<h2>View NPC</h2>
+<div class="btn-back">
 <button class="btn-tab" routerLink="/campaign/{{npc?.campaignId}}">Back</button>
+</div>
 <div class="row" *ngIf="npc">
    <div class="col-md-4">
        <div class="card">
-            <img src="{{npc.photoUrl}}" alt="{{npc.characterName}}" class="card-img-top img-thumbnail"> 
+            <img src="{{npc.photoUrl}}" alt="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg" class="img-thumbnail"> 
            <div class="card-body">
                <div>
                    <h2>{{npc.characterName}}</h2>

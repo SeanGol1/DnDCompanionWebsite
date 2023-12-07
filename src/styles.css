@@ -1,5 +1,5 @@
 /*You can add global styles to this file, and also import other style files*/
-.tab-panel {
+/*.tab-panel {
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 4px;
@@ -36,14 +36,27 @@
   .member-tabset > .nav-tabs > li.active > a > i {
     color: #404040;
   }
-  
+  */
   .member-tabset > .tab-content {
     margin-top: -3px;
-    /* background-color: #fff; */
+    background-color: #fff; 
     border: 0;
-    /* border-top: 1px solid #eee; */
+     border-top: 1px solid #eee;
     padding: 15px 0;
   }
+
+  .dropdown-menu{
+    background: url("assets/images/canvas-background.jpg");
+    background-color: rgba(0, 0, 0, 1);
+    color: rgba(0, 0, 0, 1);
+  }
+
+  .dropdown-item{
+    color: rgba(0, 0, 0, 1);
+
+  }
+
+
 
   body{
     background: url("assets/images/background.jpg");
@@ -52,6 +65,7 @@
     background-position-x: center; 
     background-attachment: fixed;
     color: black;
+    text-align: center;
     
   }
 
@@ -206,9 +220,13 @@ input[type=text],input[type=password], textarea.form-control{
   background-color: rgba(110, 13, 27, 0.5);
 }
 
-/* Trying to change the background of input after click/ during typing */
-input[type=text],input[type=password]::-moz-focus-inner{
-  /* background-color: rgba(255, 255, 255, .5); */
+.btn-back{
+  text-align:left;
+  
+}
+.btn-add{
+  margin-right:5px;
+  
 }
 
 #login-form{
@@ -250,6 +268,11 @@ input[type=text],input[type=password]::-moz-focus-inner{
     /* Fantasy-themed font */
     /*font-family: 'Cursive', 'fantasy';*/
   
+  }
+
+  img{
+    max-width: 80%;
+    max-height: auto;
   }
 }
 
