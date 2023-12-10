@@ -99,6 +99,15 @@ export class CampaignService {
     return this.http.post<any>(this.baseUrl + 'campaign/join', this.model)
   }
 
+  leaveCampaign(id:number, username:string){
+    this.model  = {
+      id: id,
+      userName: username
+    }
+    console.log("Leave = " + this.model.userName + " " + this.model.id)
+    return this.http.post<any>(this.baseUrl + 'campaign/leave', this.model)
+  }
+
   createCampaign(name:string, username:string, description:string){
     console.log("creating: "+ name + " " +username)
     this.model  = {
@@ -137,8 +146,12 @@ export class CampaignService {
     return this.http.delete(this.baseUrl + 'quests/delete/' + id);
   }
 
-  toggleNoteVisibility(id:number){
+  toggleQuestVisibility(id:number){
     return this.http.get(this.baseUrl + 'quests/togglevis/' + id);
+  }
+
+  toggleNpcVisibility(id:number){
+    return this.http.get(this.baseUrl + 'campaign/npc/togglevis/' + id);
   }
 
   addQuest(quest:Quest,campaign:number){

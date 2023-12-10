@@ -38,4 +38,19 @@ export class CampaignCardComponent implements OnInit {
     });
   }
 
+  leaveCampaign(id:number){
+    this.accountService.currentUser$.pipe(take(1)).subscribe({
+      next: user=> {
+        if (user){
+          this.campaignService.leaveCampaign(id,user?.username).subscribe({
+            next: () =>  { 
+              window.location.reload();
+            }
+          })
+        }
+      }
+    });
+    
+  }
+
 }

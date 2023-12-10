@@ -12,12 +12,14 @@
         </div>
         <div class="col-lg-2" *ngIf="isAdmin">
             <button class="btn btn-danger" (click)="deleteQuest(quest.id)"><i class="fa fa-trash"></i></button>
-            <ng-container *ngIf="!quest.isVisible">
-                <button class="btn btn-warning" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye-slash"></i></button>
-            </ng-container>
-            <ng-container *ngIf="quest.isVisible">
-                <button class="btn btn-success" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye"></i></button>
-            </ng-container>
+            <div>
+                <ng-container *ngIf="!quest.isVisible">
+                    <button id="btn-quest-vis-{{quest.id}}" class="btn btn-warning" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye-slash"></i></button>
+                </ng-container>
+                <ng-container *ngIf="quest.isVisible">
+                    <button id="btn-quest-vis-{{quest.id}}" class="btn btn-success" (click)="toggleQuestVisibility(quest.id)"><i class="fa fa-eye"></i></button>
+                </ng-container>
+            </div>
         </div>
     </div>
 </div>
