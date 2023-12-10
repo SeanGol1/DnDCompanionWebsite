@@ -21,7 +21,7 @@ export class AddNpcComponent implements OnInit{
       $event.returnValue = true;
     }
   }
-  npc: Npc | undefined = {id:0,characterName:"",campaignId:0,campaignName:"",photoUrl:"",
+  npc: Npc | undefined = {id:0,adminUser:"",characterName:"",campaignId:0,campaignName:"",photoUrl:"",
   description:"",strength:"",dexterity:"",constitution:"",intelligence:"",wisdom:"",charisma:"",race:"",class:"",isVisible:false,livesIn:""};
   user: User | null = null;
   campaign: Campaign  |  undefined;

@@ -146,6 +146,10 @@ export class CampaignService {
     return this.http.delete(this.baseUrl + 'quests/delete/' + id);
   }
 
+  deleteNpc(id:number){
+    return this.http.delete(this.baseUrl + 'campaign/npc/delete/' + id);
+  }
+
   toggleQuestVisibility(id:number){
     return this.http.get(this.baseUrl + 'quests/togglevis/' + id);
   }

@@ -6,7 +6,7 @@
             <strong>{{note.sessionDate | date:'dd-MM-yyyy'}}</strong>           
         </div>
         <div class="col-md-2" *ngIf="isAdmin">
-            <button class="btn btn-danger" (click)="deleteNote(note.id)"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-danger" (click)="deleteNote(note.id)" data-toggle="tooltip" data-placement="top" title="Delete Note"><i class="fa fa-trash"></i></button>
             <!-- <button class="btn btn-primary" (click)="toggleNoteVisibility(quest.id)"><i class="fa fa-eye"></i> Make Visible</button> -->
         </div>
     </div>

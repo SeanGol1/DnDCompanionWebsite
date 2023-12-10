@@ -50,12 +50,14 @@ export class CampaignQuestComponent implements OnInit{
     var btn = document.getElementById("btn-quest-vis-"+ this.quest?.id);
     if(btn){
       if(this.quest?.isVisible){
-        btn.className = 'btn btn-warning'
+        btn.className = 'btn btn-warning';
+        btn.title = 'Make Quest Invisible to Players';
         btn.innerHTML = '<i class="fa fa-eye-slash"></i>';
         //div.innerHTML += '<button class="btn btn-warning" id="btn-vis-'+this.quest.id+'" ng-click="toggleQuestVisibility('+this.quest?.id+')"><i class="fa fa-eye-slash"></i></button>';
       }       
       else {
-        btn.className = 'btn btn-success'
+        btn.className = 'btn btn-success';
+        btn.title = 'Make Quest Visible to Players';
         btn.innerHTML = '<i class="fa fa-eye"></i>';
         //div.innerHTML += '<button class="btn btn-success" id="btn-vis-'+this.quest.id+'" ng-click="toggleQuestVisibility('+this.quest?.id+')"><i class="fa fa-eye"></i></button>';
       }      

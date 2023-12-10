@@ -1,20 +1,28 @@
 <div class="card mb-4 text-center fantasy-border" *ngIf="npc">
     <div>
     <div class="card-img-wrapper">
-        <img src="{{npc.photoUrl}}" alt="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg" class="img-fluid"  /> <!--style="max-width: 100%; height: auto;"-->
+        <ng-container *ngIf="npc.photoUrl">
+            <img src="{{npc.photoUrl}}" alt="" class="img-fluid"  /> <!--style="max-width: 100%; height: auto;"-->
+        </ng-container>
+        <ng-container *ngIf="!npc.photoUrl">
+            <img src="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg" alt="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg" class="img-fluid"  /> <!--style="max-width: 100%; height: auto;"-->
+        </ng-container>
     </div>
         <ul class="list-inline member-icons animate text-center">
             <li class="list-inline-item">
-                <button routerLink="/npc/{{npc.id}}" class="btn btn-primary"><i class="fa fa-user"></i></button>
+                <button routerLink="/npc/{{npc.id}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Edit NPC"><i class="fa fa-user"></i></button>
             </li>
             <ng-container *ngIf="isAdmin">
-            <li class="list-inline-item" *ngIf="!npc.isVisible">
-                <button id="btn-npc-vis-{{npc.id}}"  class="btn btn-warning" (click)="toggleNpcVisibility(npc.id)"><i class="fa fa-eye-slash"></i></button>
-            </li>
-            <li class="list-inline-item" *ngIf="npc.isVisible">
-                <button id="btn-npc-vis-{{npc.id}}"  class="btn btn-success" (click)="toggleNpcVisibility(npc.id)"><i class="fa fa-eye"></i></button>
-            </li>
-        </ng-container>
+                <li class="list-inline-item" *ngIf="!npc.isVisible">
+                    <button id="btn-npc-vis-{{npc.id}}"  class="btn btn-warning" (click)="toggleNpcVisibility(npc.id)" data-toggle="tooltip" data-placement="top" title="Make NPC Invisible to Players"><i class="fa fa-eye-slash"></i></button>
+                </li>
+                <li class="list-inline-item" *ngIf="npc.isVisible">
+                    <button id="btn-npc-vis-{{npc.id}}"  class="btn btn-success" (click)="toggleNpcVisibility(npc.id)" data-toggle="tooltip" data-placement="top" title="Make NPC Visible to Players"><i class="fa fa-eye"></i></button>
+                </li>
+                <li class="list-inline-item" >
+                    <button class="btn btn-danger" (click)="deleteNpc(npc.id)" data-toggle="tooltip" data-placement="top" title="Delete NPC"><i class="fa fa-trash"></i></button>                
+                </li>
+            </ng-container>
         </ul>
     </div>
     <div class="card-body p-1">

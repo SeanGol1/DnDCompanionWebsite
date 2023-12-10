@@ -1,5 +1,6 @@
 export interface Npc {
     id:number;
+    adminUser:string;
     campaignId:number;
     campaignName:string;
     characterName : string;

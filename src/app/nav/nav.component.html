@@ -13,11 +13,11 @@
         <div class="dropdown" *ngIf="(accountService.currentUser$| async) as user" dropdown>
             <a class="dropdown-toggle text-light text-decoration-none" dropdownToggle>Welcome {{user.username | titlecase}}</a>
             <div class="dropdown-menu fantasy-border" *dropdownMenu>
-                <!-- <a class="dropdown-item" routerLink="/member/edit">Edit Profile</a> -->
-                <!--TODO: Edit Profile page-->
-                <a class="dropdown-item" routerLink="/campaign">Campaigns</a>
+                <!-- <a class="dropdown-item" routerLink="/member/edit" data-toggle="tooltip" data-placement="top" title="Edit Your Account">Edit Account</a> -->
+                <!--TODO: Edit Account page-->
+                <a class="dropdown-item" routerLink="/campaign" data-toggle="tooltip" data-placement="top" title="View Your Campaigns">Campaigns</a>
                 <hr>
-                <a class="dropdown-item" (click)="logout()">Log Out</a>
+                <a class="dropdown-item" (click)="logout()" data-toggle="tooltip" data-placement="top" title="Log Out">Log Out</a>
             </div>
         </div>
 

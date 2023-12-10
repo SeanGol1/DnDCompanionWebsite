@@ -31,7 +31,16 @@ export class NpcCardComponent implements OnInit{
         //this.quest?.isVisible == !this.quest?.isVisible; 
         this.toastr.success('Changed Visibility Successfully');  
         this.setVisButton();      
-        //window.location.reload();
+      }
+    });
+  }
+
+  deleteNpc(id:number){
+    this.campaignService.deleteNpc(id).subscribe({
+      next: () =>  { 
+        this.toastr.success('Npc Deleted Successfully');
+        //TODO: Remove the component.
+        window.location.reload();
       }
     });
   }
@@ -41,13 +50,13 @@ export class NpcCardComponent implements OnInit{
     if(btn){
       if(this.npc?.isVisible){
         btn.className = 'btn btn-warning'
+        btn.title = 'Make NPC Invisible to Players'
         btn.innerHTML = '<i class="fa fa-eye-slash"></i>';
-        //div.innerHTML += '<button class="btn btn-warning" id="btn-vis-'+this.quest.id+'" ng-click="toggleQuestVisibility('+this.quest?.id+')"><i class="fa fa-eye-slash"></i></button>';
       }       
       else {
         btn.className = 'btn btn-success'
+        btn.title = 'Make NPC Invisible to Players'
         btn.innerHTML = '<i class="fa fa-eye"></i>';
-        //div.innerHTML += '<button class="btn btn-success" id="btn-vis-'+this.quest.id+'" ng-click="toggleQuestVisibility('+this.quest?.id+')"><i class="fa fa-eye"></i></button>';
       }      
     }
   }

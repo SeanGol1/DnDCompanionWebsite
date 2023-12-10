@@ -1,13 +1,17 @@
 <div class="card fantasy-border text-center" *ngIf="player" >
     <div class="card-img-wrapper">
-        <img src="{{player.photoUrl}}" alt="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg" class="img-fluid" /><!-- card-img-top  style="max-width: auto; height: 100%;"-->
-    </div>
+        <ng-container *ngIf="player.photoUrl">
+            <img src="{{player.photoUrl}}" alt="" class="img-fluid"  /> <!--style="max-width: 100%; height: auto;"-->
+        </ng-container>
+        <ng-container *ngIf="!player.photoUrl">
+            <img src="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg" alt="" class="img-fluid"  /> <!--style="max-width: 100%; height: auto;"-->
+        </ng-container>    </div>
     <ul class="list-inline member-icons animate text-center">
         <li class="list-inline-item">
-            <button routerLink="/players/{{player.id}}" class="btn btn-primary"><i class="fa fa-user"></i></button>
+            <button routerLink="/players/{{player.id}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="View Player"><i class="fa fa-user"></i></button>
         </li>
         <li class="list-inline-item" *ngIf="isAdmin">
-            <button (click)="deletePlayer(player.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+            <button (click)="deletePlayer(player.id)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Player"><i class="fa fa-trash"></i></button>
         </li>
     </ul>
     <div class="card-body p-1 text-center">

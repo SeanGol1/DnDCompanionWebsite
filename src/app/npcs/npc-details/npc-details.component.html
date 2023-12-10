@@ -18,10 +18,16 @@
                    <p>{{npc.userName}}</p> -->
                </div>
            </div>
-           <div class="card-footer">
-             <ng-container *ngIf="isCreator">
-               <button (click)="editNpc(npc.id)" class="btn btn-primary"><i class="fa fa-pencil"></i></button>              
-               <button (click)="deleteNpc(npc.id)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+          <div class="card-footer">
+             <ng-container *ngIf="isAdmin">
+               <button (click)="editNpc(npc.id)" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Edit NPC"><i class="fa fa-pencil"></i></button>   
+               <ng-container *ngIf="!npc.isVisible">
+                <button id="btn-npc-vis-{{npc.id}}"  class="btn btn-warning" (click)="toggleNpcVisibility(npc.id)" data-toggle="tooltip" data-placement="top" title="Make NPC Invisible to Players"><i class="fa fa-eye-slash"></i></button>
+              </ng-container>
+            <ng-container *ngIf="npc.isVisible">
+                <button id="btn-npc-vis-{{npc.id}}"  class="btn btn-success" (click)="toggleNpcVisibility(npc.id)" data-toggle="tooltip" data-placement="top" title="Make NPC Visible to Players"><i class="fa fa-eye"></i></button>
+            </ng-container>           
+               <button (click)="deleteNpc(npc.id)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete NPC"><i class="fa fa-trash"></i></button>
              </ng-container>
            </div>
        </div>
