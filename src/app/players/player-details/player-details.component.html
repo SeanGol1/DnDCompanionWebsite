@@ -1,79 +1,82 @@
- <div class="btn-back">
+<div class="btn-back">
   <button class="btn-tab" routerLink="/campaign/{{player?.campaignId}}">Back</button>
- </div>
+</div>
 
- <div class="row" *ngIf="player">
-    <div class="col-md-4">
-        <div class="card">
-            <img src="{{player.photoUrl}}" alt="" class="img-thumbnail"> 
-            <div class="card-body">
-                <div>
-                    <h2>{{player.characterName}}</h2>
-                </div>
-                <div>
-                    <strong>Campaign Name:</strong>
-                    <p>{{player.campaignName}}</p>
-                </div>
-                <div>
-                    <strong>User:</strong>
-                    <p>{{player.userName | titlecase}}</p>
-                </div>
-            </div>
-            <div class="card-footer">
-              <ng-container *ngIf="isCreator">
-                <button (click)="editPlayer(player.id)" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Edit Player"><i class="fa fa-pencil"></i></button>              
-                <ng-container *ngIf="player.dndBeyondPcId">
-                  <button (click)="updatePlayer(player.id)" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Sync player with DnDBeyond"><i class="fa fa-refresh"></i></button>
-                </ng-container>
-                <button (click)="deletePlayer(player.id)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete Player"><i class="fa fa-trash"></i></button>
-              </ng-container>
-            </div>
+<div class="row" *ngIf="player">
+  <div class="col-md-4">
+    <div class="card">
+      <img src="{{player.photoUrl}}" alt="" class="img-thumbnail">
+      <div class="card-body">
+        <div>
+          <h2>{{player.characterName}}</h2>
         </div>
+        <div>
+          <strong>Campaign Name:</strong>
+          <p>{{player.campaignName}}</p>
+        </div>
+        <div>
+          <strong>User:</strong>
+          <p>{{player.userName | titlecase}}</p>
+        </div>
+      </div>
+      <div class="card-footer">
+        <ng-container *ngIf="isCreator">
+          <button routerLink="/players/edit/{{player.id}}" class="btn btn-primary" data-toggle="tooltip"
+            data-placement="top" title="Edit Player"><i class="fa fa-pencil"></i></button>
+          <ng-container *ngIf="player.dndBeyondPcId">
+            <button (click)="updatePlayer(player.id)" class="btn btn-primary" data-toggle="tooltip" data-placement="top"
+              title="Sync player with DnDBeyond"><i class="fa fa-refresh"></i></button>
+          </ng-container>
+          <button (click)="deletePlayer(player.id)" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
+            title="Delete Player"><i class="fa fa-trash"></i></button>
+        </ng-container>
+      </div>
     </div>
+  </div>
 
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-md-3">
-          <h4>Race</h4>
-          <p>{{player.race}} </p>
-        </div>  
-        <div class="col-md-3">
-          <h4>Class</h4>
-          <p>{{player.class}} <ng-container *ngIf="player.secondaryClass">/ {{player.secondaryClass}}</ng-container></p>
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Race</h4>
+        <p>{{player.race}} </p>
+      </div>
+      <div class="col-md-3">
+        <h4>Class</h4>
+        <p>{{player.class}} <ng-container *ngIf="player.secondaryClass">/ {{player.secondaryClass}}</ng-container></p>
       </div>
     </div>
 
     <div class="row ">
       <h4>Stats</h4>
-          <div class="col-6">
-            <p><b> STR: </b>{{player.strength}}</p>
-            <p><b> DEX: </b>{{player.dexterity}}</p>
-            <p><b> CON: </b>{{player.constitution}}</p>
-          </div>
-          <div class="col-6">
-            <p><b> INT: </b>{{player.intelligence}}</p>
-            <p><b> WIS: </b>{{player.wisdom}}</p>
-            <p><b> CHA: </b>{{player.charisma}}</p> 
-        </div>     
-                
-    </div> 
+      <div class="col-6">
+        <p><b> STR: </b>{{player.strength}}</p>
+        <p><b> DEX: </b>{{player.dexterity}}</p>
+        <p><b> CON: </b>{{player.constitution}}</p>
+      </div>
+      <div class="col-6">
+        <p><b> INT: </b>{{player.intelligence}}</p>
+        <p><b> WIS: </b>{{player.wisdom}}</p>
+        <p><b> CHA: </b>{{player.charisma}}</p>
+      </div>
+
+    </div>
     <div>
-        <h4>Backstory</h4>
-        <p>{{player.description}}</p>
+      <h4>Backstory</h4>
+      <p>{{player.description}}</p>
     </div>
 
-   
-    
+
+
 
     <div>
       <h4>Background</h4>
       <h6>{{player.backgroundName}}</h6>
       <div [innerHTML]="player.backgroundDescription"></div>
-      
-  </div>
-  
-      
+
+    </div>
+
+
 
 
   </div>
-</div> 
+</div>

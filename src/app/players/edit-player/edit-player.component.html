@@ -1,0 +1,58 @@
+<div class="btn-back">
+    <button class="btn-tab" routerLink="/players/{{player?.id}}">Back</button>
+</div>
+<div class="row" *ngIf="player">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
+            <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
+        </div>
+        <form #editForm="ngForm" id="editForm" (ngSubmit)="updatePlayer()">
+            <h4 class="mt-2">Character name</h4>
+            <textarea class="form-control" [(ngModel)]="player.characterName" name="characterName" rows="1"></textarea>
+            <h4 class="mt-2">Race</h4>
+            <textarea class="form-control" [(ngModel)]="player.race" name="race" rows="1"></textarea>
+            <h4 class="mt-2">Class</h4>
+            <textarea class="form-control" [(ngModel)]="player.class" name="class" rows="1"></textarea>
+            <h4 class="mt-2">Secondary Class</h4>
+            <textarea class="form-control" [(ngModel)]="player.secondaryClass" name="secondaryClass"
+                rows="1"></textarea>
+            <h4 class="mt-2">Description</h4>
+            <textarea class="form-control" [(ngModel)]="player.description" name="description" rows="3"></textarea>
+            <h4 class="mt-2">Background</h4>
+            <textarea class="form-control" [(ngModel)]="player.backgroundDescription" name="backgroundDescription"
+                rows="3"></textarea>
+            <div class="row">
+                <div class="col-2">
+                    <h4>Str</h4>
+                    <input type="number" class="form-control" [(ngModel)]="player.strength" name="strength" />
+                </div>
+                <div class="col-2">
+                    <h4>Dex</h4>
+                    <input type="number" class="form-control" [(ngModel)]="player.dexterity" name="dexterity" />
+                </div>
+                <div class="col-2">
+                    <h4>Con</h4>
+                    <input type="number" class="form-control" [(ngModel)]="player.constitution" name="constitution" />
+                </div>
+                <div class="col-2">
+                    <h4>Int</h4>
+                    <input type="number" class="form-control" [(ngModel)]="player.intelligence" name="intelligence" />
+                </div>
+                <div class="col-2">
+                    <h4>Wis</h4>
+                    <input type="number" class="form-control" [(ngModel)]="player.wisdom" name="wisdom" />
+                </div>
+                <div class="col-2">
+                    <h4>Cha</h4>
+                    <input type="number" class="form-control" [(ngModel)]="player.charisma" name="charisma" />
+                </div>
+            </div>
+
+        </form>
+        <button type="submit" class="btn btn-success col-4" form="editForm">Save Changes</button>
+
+    </div>
+    <div class="col--md-2"></div>
+
+</div>

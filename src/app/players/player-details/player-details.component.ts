@@ -63,7 +63,7 @@ export class PlayerDetailsComponent implements OnInit{
   updatePlayer(id:number){
     var campaign = Number(this.route.snapshot.paramMap.get('id'));
     if(campaign) {
-      this.campaignService.updatePlayer(id).subscribe({
+      this.campaignService.updatePlayerDndBeyond(id).subscribe({
         next: player =>  { 
           this.player = player
         }

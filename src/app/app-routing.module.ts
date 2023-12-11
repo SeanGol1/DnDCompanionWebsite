@@ -21,6 +21,7 @@ import { NpcDetailsComponent } from './npcs/npc-details/npc-details.component';
 import { AddNpcComponent } from './players/add-npc/add-npc.component';
 import { AddLocationComponent } from './locations/add-location/add-location.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
+import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,7 +41,8 @@ children:[
   {path: 'quests/add/:id',component:AddQuestComponent, canDeactivate: [preventUnsavedChangesGuard]},
   {path: 'npc/add/:id',component:AddNpcComponent, canDeactivate: [preventUnsavedChangesGuard]},
   {path: 'location/add/:id',component:AddLocationComponent, canDeactivate: [preventUnsavedChangesGuard]},
-  {path: 'notes/add/:id',component:AddNoteComponent, canDeactivate: [preventUnsavedChangesGuard]}
+  {path: 'notes/add/:id',component:AddNoteComponent, canDeactivate: [preventUnsavedChangesGuard]},
+  {path: 'players/edit/:id',component:EditPlayerComponent, canDeactivate: [preventUnsavedChangesGuard]}
 
 
 ]},  

@@ -1,3 +1,4 @@
+import { CharacterPhoto } from "./characterPhoto"
 
 export interface Player {
   id:number;
@@ -20,5 +21,6 @@ export interface Player {
   intelligence: string;
   wisdom : string;
   charisma : string;
+  photos: CharacterPhoto[]
 }
   

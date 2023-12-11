@@ -85,6 +85,7 @@
         <div *ngIf="activeTab == 'npc'">
             <div class="row">
                 <div class="row">
+                    <!-- TODO: Fix Spacing -->
                     <h3 class="col-11">NPCs</h3>
                     <div class="col-1" *ngIf="isDm">
                         <button class="btn btn-success btn-add" routerLink="/npc/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add NPC"><i class="fa fa-plus"></i></button>
@@ -98,11 +99,15 @@
         <div *ngIf="activeTab == 'location'">
             <div class="row">
                 <div class="row">
-                    <h3 class="col-11">Locations</h3>
-                    <div class="col-1" *ngIf="isDm">
-                        <button class="btn btn-success btn-add" routerLink="/location/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add Location"><i class="fa fa-plus"></i></button>
+                    <div *ngIf="isDm">
+                        <h3 class="col-11">Locations</h3>
+                        <div class="col-1" >
+                            <button class="btn btn-success btn-add" routerLink="/location/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add Location"><i class="fa fa-plus"></i></button>
+                        </div>                    
                     </div>
-                </div>
+                    <div *ngIf="!isDm">
+                        <h3 class="col-12">Locations</h3>                 
+                    </div>
                 <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let local of locals">
                    <app-location-card [local]="local" [isAdmin] ="isDm"></app-location-card>
                 </div>   

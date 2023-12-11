@@ -40,6 +40,8 @@ import { LoginComponent } from './login/login.component';
 import { LocationCardComponent } from './locations/location-card/location-card.component';
 import { LocationDetailsComponent } from './locations/location-details/location-details.component';
 import { AddLocationComponent } from './locations/add-location/add-location.component';
+import { PcPhotoEditorComponent } from './players/pc-photo-editor/pc-photo-editor.component';
+import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +76,9 @@ import { AddLocationComponent } from './locations/add-location/add-location.comp
     LoginComponent,
     LocationCardComponent,
     LocationDetailsComponent,
-    AddLocationComponent
+    AddLocationComponent,
+    PcPhotoEditorComponent,
+    EditPlayerComponent
   ],
   imports: [
     BrowserModule,

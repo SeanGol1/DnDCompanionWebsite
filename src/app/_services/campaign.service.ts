@@ -73,8 +73,13 @@ export class CampaignService {
     return this.http.delete(this.baseUrl + 'player/' + id);
   }
 
-  updatePlayer(id:number){
+  updatePlayerDndBeyond(id:number){
     return this.http.get<Player>(this.baseUrl + 'player/dndbeyondsync/' + id);
+  }
+
+  updatePlayer(player:Player,id:number){
+    player.id = id;
+    return this.http.put(this.baseUrl + 'player', player);
   }
 
   getQuestsByCampaignId(id:number){

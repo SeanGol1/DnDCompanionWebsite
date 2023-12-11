@@ -1,4 +1,4 @@
-import { Photo } from "./photo"
+// import { Photo } from "./characterPhoto"
 
 export interface Member {
     id: number
@@ -14,6 +14,6 @@ export interface Member {
     interests: string
     city: string
     country: string
-    photos: Photo[]
+    // photos: Photo[]
   }
   
