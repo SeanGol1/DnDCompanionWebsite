@@ -2,10 +2,20 @@
     <div class="col-lg-12">
         <div class="row tab-header">
             <!-- TODO: Cache the current/last tab -->
-            <button id='btn-about' class="btn-tab col-6 col-md-3" (click)="tabChange('about')">About</button>
-            <button id='btn-quest' class="btn-tab col-6 col-md-3" (click)="tabChange('quest')">Quests</button>
-            <button id='btn-pc' class="btn-tab col-6 col-md-3" (click)="tabChange('pc')">Players</button>            
-            <button id='btn-npc' class="btn-tab col-6 col-md-3" (click)="tabChange('npc')">NPCs</button>
+            <!--TODO: Fix spacing-->
+            <ul class="list-inline member-icons animate text-center">
+                <li class="list-inline-item">
+            <button id='btn-about' class="btn-tab" (click)="tabChange('about')">About</button>
+            </li>
+            <li class="list-inline-item">
+            <button id='btn-quest' class="btn-tab" (click)="tabChange('quest')">Quests</button></li>
+            <li class="list-inline-item">
+            <button id='btn-pc' class="btn-tab" (click)="tabChange('pc')">Players</button>    </li>   
+            <li class="list-inline-item">  
+            <button id='btn-npc' class="btn-tab" (click)="tabChange('npc')">NPCs</button></li>   
+            <li class="list-inline-item">
+            <button id='btn-location' class="btn-tab" (click)="tabChange('location')">Locations</button></li>
+            </ul>
         </div>
 
         <div *ngIf="activeTab == 'about'">
@@ -82,6 +92,19 @@
                 </div>
                 <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let npc of npcs">
                     <app-npc-card  [npc]="npc" [isAdmin] ="isDm"></app-npc-card>
+                </div>   
+            </div>
+        </div>
+        <div *ngIf="activeTab == 'location'">
+            <div class="row">
+                <div class="row">
+                    <h3 class="col-11">Locations</h3>
+                    <div class="col-1" *ngIf="isDm">
+                        <button class="btn btn-success btn-add" routerLink="/location/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add Location"><i class="fa fa-plus"></i></button>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let npc of npcs">
+                   
                 </div>   
             </div>
         </div>

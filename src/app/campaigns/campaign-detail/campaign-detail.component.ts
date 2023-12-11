@@ -70,12 +70,14 @@ export class CampaignDetailComponent implements OnInit,AfterContentInit{
     let btn2 = document.getElementById('btn-pc');
     let btn3 = document.getElementById('btn-npc');
     let btn4 = document.getElementById('btn-quest');
+    let btn5 = document.getElementById('btn-location');
 
-    if(btn1 && btn2 && btn3 && btn4){
+    if(btn1 && btn2 && btn3 && btn4 && btn5){
       btn1.style.backgroundColor = 'rgba(0, 0, 0, 0)';
       btn2.style.backgroundColor = 'rgba(0, 0, 0, 0)';
       btn3.style.backgroundColor = 'rgba(0, 0, 0, 0)';
       btn4.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+      btn5.style.backgroundColor = 'rgba(0, 0, 0, 0)';
     }
      
     let btn = document.getElementById('btn-' + tab)

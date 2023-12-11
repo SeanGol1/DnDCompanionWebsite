@@ -52,23 +52,23 @@ export class CampaignService {
   }
 
   getPlayersByCampaignId(id:number){
-    return this.http.get<Player[]>(this.baseUrl + 'campaign/playercharacters/' + id);
+    return this.http.get<Player[]>(this.baseUrl + 'player/playercharacters/' + id);
   }
 
   getPlayersById(id:number){
-    return this.http.get<Player>(this.baseUrl + 'campaign/player/' + id);
+    return this.http.get<Player>(this.baseUrl + 'player/' + id);
   }
 
   getNpcById(id:number){
-    return this.http.get<Npc>(this.baseUrl + 'campaign/npc/' + id);
+    return this.http.get<Npc>(this.baseUrl + 'npc/' + id);
   }
 
   deletePlayer(id:number){
-    return this.http.delete(this.baseUrl + 'campaign/player/delete/' + id);
+    return this.http.delete(this.baseUrl + 'player/' + id);
   }
 
   updatePlayer(id:number){
-    return this.http.get<Player>(this.baseUrl + 'campaign/player/update/' + id);
+    return this.http.get<Player>(this.baseUrl + 'player/dndbeyondsync/' + id);
   }
 
   getQuestsByCampaignId(id:number){
@@ -83,7 +83,7 @@ export class CampaignService {
 
   getNPCsByCampaignId(id:number){
     if(this.npcs.length > 0) return of(this.npcs);
-    return this.http.get<Npc[]>(this.baseUrl + 'campaign/npcs/' + id).pipe(
+    return this.http.get<Npc[]>(this.baseUrl + 'npc/campaign/' + id).pipe(
       map(npcs => {
         this.npcs = npcs;
         return npcs;
@@ -133,13 +133,13 @@ export class CampaignService {
   addPlayer(player:Player,campaign:number,user: User){
     player.campaignId = campaign;
     player.userName = user.username;
-    return this.http.post<any>(this.baseUrl + 'campaign/addpc', player).pipe();
+    return this.http.post<any>(this.baseUrl + 'player', player).pipe();
   }
 
   addNpc(npc:Npc,campaign:number,user: User){
     npc.campaignId = campaign;
     //npc.userName = user.username;
-    return this.http.post<any>(this.baseUrl + 'campaign/addnpc', npc).pipe();
+    return this.http.post<any>(this.baseUrl + 'npc', npc).pipe();
   }
 
   deleteQuest(id:number){
@@ -147,15 +147,19 @@ export class CampaignService {
   }
 
   deleteNpc(id:number){
-    return this.http.delete(this.baseUrl + 'campaign/npc/delete/' + id);
+    return this.http.delete(this.baseUrl + 'npc/' + id);
   }
 
   toggleQuestVisibility(id:number){
     return this.http.get(this.baseUrl + 'quests/togglevis/' + id);
   }
 
+  toggleQuestCompleted(id:number){
+    return this.http.get(this.baseUrl + 'quests/togglecomp/' + id);
+  }
+
   toggleNpcVisibility(id:number){
-    return this.http.get(this.baseUrl + 'campaign/npc/togglevis/' + id);
+    return this.http.get(this.baseUrl + 'npc/togglevis/' + id);
   }
 
   addQuest(quest:Quest,campaign:number){

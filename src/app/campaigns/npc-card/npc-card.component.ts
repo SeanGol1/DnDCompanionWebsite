@@ -50,7 +50,7 @@ export class NpcCardComponent implements OnInit{
     if(btn){
       if(this.npc?.isVisible){
         btn.className = 'btn btn-warning'
-        btn.title = 'Make NPC Invisible to Players'
+        btn.title = 'Make NPC Visible to Players'
         btn.innerHTML = '<i class="fa fa-eye-slash"></i>';
       }       
       else {

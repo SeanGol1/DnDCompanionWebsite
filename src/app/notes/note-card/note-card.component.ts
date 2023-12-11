@@ -23,6 +23,8 @@ export class NoteCardComponent {
       }
     });
   }
+
+  editNote(id:number){}
   
   toggleNoteVisibility(id:number){
     console.log("Vis");
