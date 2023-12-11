@@ -37,6 +37,9 @@ import { NoteCardComponent } from './notes/note-card/note-card.component';
 import { AddNoteComponent } from './notes/add-note/add-note.component';
 import { NpcDetailsComponent } from './npcs/npc-details/npc-details.component';
 import { LoginComponent } from './login/login.component';
+import { LocationCardComponent } from './locations/location-card/location-card.component';
+import { LocationDetailsComponent } from './locations/location-details/location-details.component';
+import { AddLocationComponent } from './locations/add-location/add-location.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +71,10 @@ import { LoginComponent } from './login/login.component';
     NoteCardComponent,
     AddNoteComponent,
     NpcDetailsComponent,
-    LoginComponent
+    LoginComponent,
+    LocationCardComponent,
+    LocationDetailsComponent,
+    AddLocationComponent
   ],
   imports: [
     BrowserModule,

@@ -103,8 +103,8 @@
                         <button class="btn btn-success btn-add" routerLink="/location/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add Location"><i class="fa fa-plus"></i></button>
                     </div>
                 </div>
-                <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let npc of npcs">
-                   
+                <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let local of locals">
+                   <app-location-card [local]="local" [isAdmin] ="isDm"></app-location-card>
                 </div>   
             </div>
         </div>

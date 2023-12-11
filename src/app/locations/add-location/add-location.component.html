@@ -1,0 +1,37 @@
+<div class="btn-back">
+    <button class="btn-tab" routerLink="/campaign/{{campaignId}}">Back</button>
+    </div>
+    <div class="row" *ngIf="local">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
+                <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
+            </div>
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="addLocation()">
+
+                <h4 class="mt-2">Name</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="local.name"
+                    name="name"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Town/City</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="local.town"
+                    name="race"
+                    rows="1"
+                    ></textarea>
+                <h4 class="mt-2">Description</h4>
+                <textarea class="form-control"
+                    [(ngModel)]="local.description"
+                    name="description"
+                    rows="3"
+                    ></textarea>
+    
+            </form>
+            <button type="submit" class="btn btn-success col-4" form="editForm">Save Changes</button>
+    
+        </div>
+        <div class="col-md-2"></div>
+       
+    </div>

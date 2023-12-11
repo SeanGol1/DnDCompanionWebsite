@@ -9,6 +9,7 @@ import { Npc } from '../_models/npc';
 import { User } from '../_models/user';
 import { AccountService } from './account.service';
 import { Note } from '../_models/note';
+import { Location } from '../_models/location';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,7 @@ export class CampaignService {
   campaigns: Campaign[] = [];
   quests:Quest[] = [];
   npcs:Npc[]=[];
+  locals:Location[]=[];
   model:any;
   user:User| null = null;
   private isAdminSource = new BehaviorSubject<boolean | null>(null);
@@ -63,6 +65,10 @@ export class CampaignService {
     return this.http.get<Npc>(this.baseUrl + 'npc/' + id);
   }
 
+  getLocationById(id:number){
+    return this.http.get<Location>(this.baseUrl + 'location/' + id);
+  }
+
   deletePlayer(id:number){
     return this.http.delete(this.baseUrl + 'player/' + id);
   }
@@ -87,6 +93,16 @@ export class CampaignService {
       map(npcs => {
         this.npcs = npcs;
         return npcs;
+      })
+    );
+  }
+
+  getLocationsByCampaignId(id:number){
+    if(this.locals.length > 0) return of(this.locals);
+    return this.http.get<Location[]>(this.baseUrl + 'location/campaign/' + id).pipe(
+      map(locals => {
+        this.locals = locals;
+        return locals;
       })
     );
   }
@@ -142,12 +158,22 @@ export class CampaignService {
     return this.http.post<any>(this.baseUrl + 'npc', npc).pipe();
   }
 
+  addLocation(local:Location,campaign:number,user: User){
+    local.campaignId = campaign;
+    //npc.userName = user.username;
+    return this.http.post<any>(this.baseUrl + 'location', local).pipe();
+  }
+
   deleteQuest(id:number){
     return this.http.delete(this.baseUrl + 'quests/delete/' + id);
   }
 
   deleteNpc(id:number){
     return this.http.delete(this.baseUrl + 'npc/' + id);
+  }
+
+  deleteLocation(id:number){
+    return this.http.delete(this.baseUrl + 'location/' + id);
   }
 
   toggleQuestVisibility(id:number){
@@ -160,6 +186,10 @@ export class CampaignService {
 
   toggleNpcVisibility(id:number){
     return this.http.get(this.baseUrl + 'npc/togglevis/' + id);
+  }
+
+  toggleLocationVisibility(id:number){
+    return this.http.get(this.baseUrl + 'location/togglevis/' + id);
   }
 
   addQuest(quest:Quest,campaign:number){

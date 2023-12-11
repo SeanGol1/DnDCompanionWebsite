@@ -9,6 +9,7 @@ import { Quest } from 'src/app/_models/quest';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
 import { CampaignService } from 'src/app/_services/campaign.service';
+import { Location } from 'src/app/_models/location';
 
 @Component({
   selector: 'app-campaign-detail',
@@ -23,6 +24,7 @@ export class CampaignDetailComponent implements OnInit,AfterContentInit{
   notes: Note[] = []; 
   quests: Quest[] = [];
   npcs: Npc[]=[];
+  locals: Location[]=[];
   mainQuests : Quest[] = [];
   sideQuests : Quest[] = [];
   isAdmin: boolean = false;
@@ -44,6 +46,7 @@ export class CampaignDetailComponent implements OnInit,AfterContentInit{
     this.loadCampaign();    
     this.loadPlayers();
     this.loadNotes();
+    
   }
 
   ngAfterContentInit(): void{
@@ -93,13 +96,13 @@ export class CampaignDetailComponent implements OnInit,AfterContentInit{
           this.campaign = campaign         
           this.loadQuests(campaign);
           this.loadNpcs(campaign);
+          this.loadLocations(campaign);
         }
       });
     }
   }
 
   clearLists(){
-    console.log("Clearing lists");
     this.elementRef.nativeElement.remove();
     this.quests = [];
     this.mainQuests = [];
@@ -147,8 +150,32 @@ export class CampaignDetailComponent implements OnInit,AfterContentInit{
               }
 
             }
-          });
-    
+          });  
+
+        }
+      });
+    }
+  }
+
+  loadLocations(campaign:Campaign){
+    if(campaign){
+      this.campaignService.getLocationsByCampaignId(campaign.id).subscribe({
+        next: locals=>  {
+          //this.npcs = npcs   
+          this.accountService.currentUser$.pipe(take(1)).subscribe({
+            next: user=> {
+              this.user = user
+              if(this.campaign?.adminUser === this.user?.username ){
+                this.isDm = true;
+                this.locals = locals;
+              } 
+              else{
+                this.isDm = false;
+                this.locals = locals.filter((local:Location) => local.isVisible == true);       
+              }
+
+            }
+          });  
 
         }
       });
