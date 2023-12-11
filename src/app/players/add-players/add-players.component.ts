@@ -23,7 +23,7 @@ export class AddPlayersComponent implements OnInit {
     }
   }
   player: Player | undefined = {id:0,userName:"",characterName:"",campaignId:0,campaignName:"",characterSheetLink:"",dndBeyondPcId:"",photoUrl:"",
-  description:"",strength:"",dexterity:"",constitution:"",intelligence:"",wisdom:"",charisma:"",race:"",class:"",secondaryClass:"",backgroundDescription:"",backgroundName:"",photos:[]};
+  description:"",strength:"",dexterity:"",constitution:"",intelligence:"",wisdom:"",charisma:"",race:"",class:"",secondaryClass:"",backgroundDescription:"",backgroundName:"",characterPhotos:[]};
   user: User | null = null;
   campaign: Campaign  |  undefined;
   campaignId : number = 0;

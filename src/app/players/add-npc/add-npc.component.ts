@@ -22,7 +22,7 @@ export class AddNpcComponent implements OnInit{
     }
   }
   npc: Npc | undefined = {id:0,adminUser:"",characterName:"",campaignId:0,campaignName:"",photoUrl:"",
-  description:"",strength:"",dexterity:"",constitution:"",intelligence:"",wisdom:"",charisma:"",race:"",class:"",isVisible:false,livesIn:""};
+  description:"",strength:"",dexterity:"",constitution:"",intelligence:"",wisdom:"",charisma:"",race:"",class:"",isVisible:false,livesIn:"",photos:[]};
   user: User | null = null;
   campaign: Campaign  |  undefined;
   campaignId : number = 0;

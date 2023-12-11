@@ -44,6 +44,8 @@ import { PcPhotoEditorComponent } from './players/pc-photo-editor/pc-photo-edito
 import { EditPlayerComponent } from './players/edit-player/edit-player.component';
 import { EditNpcComponent } from './npcs/edit-npc/edit-npc.component';
 import { EditLocationComponent } from './locations/edit-location/edit-location.component';
+import { NpcPhotoEditorComponent } from './npcs/npc-photo-editor/npc-photo-editor.component';
+import { LocationPhotoEditorComponent } from './locations/location-photo-editor/location-photo-editor.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +84,9 @@ import { EditLocationComponent } from './locations/edit-location/edit-location.c
     PcPhotoEditorComponent,
     EditPlayerComponent,
     EditNpcComponent,
-    EditLocationComponent
+    EditLocationComponent,
+    NpcPhotoEditorComponent,
+    LocationPhotoEditorComponent
   ],
   imports: [
     BrowserModule,

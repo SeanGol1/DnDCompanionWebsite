@@ -1,3 +1,4 @@
+import { CharacterPhoto } from "./characterPhoto"
 export interface Location {
     id:number;
     adminUser:string;
@@ -7,4 +8,5 @@ export interface Location {
     town: string;
     isVisible: boolean;
     description:string;
+    photos: CharacterPhoto[];
 }

@@ -22,7 +22,7 @@ export class AddLocationComponent implements OnInit{
     }
   }
   local: Location | undefined = {id:0,adminUser:"",name:"",campaignId:0,image:"",
-  description:"",isVisible:false,town:""};
+  description:"",isVisible:false,town:"",photos:[]};
   user: User | null = null;
   campaign: Campaign  |  undefined;
   campaignId : number = 0;

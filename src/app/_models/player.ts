@@ -21,6 +21,6 @@ export interface Player {
   intelligence: string;
   wisdom : string;
   charisma : string;
-  photos: CharacterPhoto[]
+  characterPhotos: CharacterPhoto[]
 }
   
