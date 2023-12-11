@@ -81,6 +81,15 @@ export class CampaignService {
     player.id = id;
     return this.http.put(this.baseUrl + 'player', player);
   }
+  updateNpc(npc:Npc,id:number){
+    npc.id = id;
+    return this.http.put(this.baseUrl + 'npc', npc);
+  }
+
+  updateLocation(local:Location,id:number){
+    local.id = id;
+    return this.http.put(this.baseUrl + 'location', local);
+  }
 
   getQuestsByCampaignId(id:number){
     if(this.quests.length > 0) return of(this.quests);

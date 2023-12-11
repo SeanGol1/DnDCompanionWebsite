@@ -22,7 +22,7 @@
             </div>
             <div class="card-footer">
                 <ng-container *ngIf="isAdmin">
-                    <button (click)="editLocation(local.id)" class="btn btn-primary" data-toggle="tooltip"
+                    <button routerLink="/location/edit/{{local.id}}" class="btn btn-primary" data-toggle="tooltip"
                         data-placement="top" title="Edit Location"><i class="fa fa-pencil"></i></button>
                     <ng-container *ngIf="!local.isVisible">
                         <button id="btn-local-vis-{{local.id}}" class="btn btn-warning"

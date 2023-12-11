@@ -1,60 +1,66 @@
 <div class="btn-back">
-<button class="btn-tab" routerLink="/campaign/{{npc?.campaignId}}">Back</button>
+  <button class="btn-tab" routerLink="/campaign/{{npc?.campaignId}}">Back</button>
 </div>
 <div class="row" *ngIf="npc">
-   <div class="col-md-4">
-       <div class="card">
-            <img src="{{npc.photoUrl}}" alt="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg" class="img-thumbnail"> 
-           <div class="card-body">
-               <div>
-                   <h2>{{npc.characterName}}</h2>
-               </div>
-               <div>
-                   <strong>Campaign Name:</strong>
-                   <p>{{npc.campaignName}}</p>
-               </div>
-               <div>
-                   <!-- <strong>User:</strong>
+  <div class="col-md-4">
+    <div class="card">
+      <img src="{{npc.photoUrl}}" alt="" class="img-thumbnail">
+      <div class="card-body">
+        <div>
+          <h2>{{npc.characterName}}</h2>
+        </div>
+        <div>
+          <strong>Campaign Name:</strong>
+          <p>{{npc.campaignName}}</p>
+        </div>
+        <div>
+          <!-- <strong>User:</strong>
                    <p>{{npc.userName}}</p> -->
-               </div>
-           </div>
-          <div class="card-footer">
-             <ng-container *ngIf="isAdmin">
-               <button (click)="editNpc(npc.id)" class="btn btn-primary" data-toggle="tooltip" data-placement="top" title="Edit NPC"><i class="fa fa-pencil"></i></button>   
-               <ng-container *ngIf="!npc.isVisible">
-                <button id="btn-npc-vis-{{npc.id}}"  class="btn btn-warning" (click)="toggleNpcVisibility(npc.id)" data-toggle="tooltip" data-placement="top" title="Make NPC Invisible to Players"><i class="fa fa-eye-slash"></i></button>
-              </ng-container>
-            <ng-container *ngIf="npc.isVisible">
-                <button id="btn-npc-vis-{{npc.id}}"  class="btn btn-success" (click)="toggleNpcVisibility(npc.id)" data-toggle="tooltip" data-placement="top" title="Make NPC Visible to Players"><i class="fa fa-eye"></i></button>
-            </ng-container>           
-               <button (click)="deleteNpc(npc.id)" class="btn btn-danger" data-toggle="tooltip" data-placement="top" title="Delete NPC"><i class="fa fa-trash"></i></button>
-             </ng-container>
-           </div>
-       </div>
-   </div>
+        </div>
+      </div>
+      <div class="card-footer">
+        <ng-container *ngIf="isAdmin">
+          <button routerLink="/npcs/edit/{{npc.id}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top"
+            title="Edit NPC"><i class="fa fa-pencil"></i></button>
+          <ng-container *ngIf="!npc.isVisible">
+            <button id="btn-npc-vis-{{npc.id}}" class="btn btn-warning" (click)="toggleNpcVisibility(npc.id)"
+              data-toggle="tooltip" data-placement="top" title="Make NPC Invisible to Players"><i
+                class="fa fa-eye-slash"></i></button>
+          </ng-container>
+          <ng-container *ngIf="npc.isVisible">
+            <button id="btn-npc-vis-{{npc.id}}" class="btn btn-success" (click)="toggleNpcVisibility(npc.id)"
+              data-toggle="tooltip" data-placement="top" title="Make NPC Visible to Players"><i
+                class="fa fa-eye"></i></button>
+          </ng-container>
+          <button (click)="deleteNpc(npc.id)" class="btn btn-danger" data-toggle="tooltip" data-placement="top"
+            title="Delete NPC"><i class="fa fa-trash"></i></button>
+        </ng-container>
+      </div>
+    </div>
+  </div>
 
-   <div class="col-md-8">
-     <div class="row">
-       <div class="col-md-3">
-         <h4>Race</h4>
-         <p>{{npc.race}}</p>
-       </div>  
-       <div class="col-md-3">
-         <h4>Class</h4>
-         <p>{{npc.class}}</p>
-     </div>
-     <div class="col-md-3">
+  <div class="col-md-8">
+    <div class="row">
+      <div class="col-md-3">
+        <h4>Race</h4>
+        <p>{{npc.race}}</p>
+      </div>
+      <div class="col-md-3">
+        <h4>Class</h4>
+        <p>{{npc.class}}</p>
+      </div>
+      <div class="col-md-3">
         <h4>Lives In</h4>
         <p>{{npc.livesIn}}</p>
-      </div>  
-   </div>
-   <div>
-       <h4>Background</h4>
-       <p>{{npc.description}}</p>
-   </div>
- 
+      </div>
+    </div>
+    <div>
+      <h4>Background</h4>
+      <p>{{npc.description}}</p>
+    </div>
 
-   <!-- <div class="row" id="stats-div">
+
+    <!-- <div class="row" id="stats-div">
        <div class="container">
          <table class="table table-hover">
            <thead>
@@ -95,5 +101,5 @@
    </div>          -->
 
 
- </div>
-</div> 
+  </div>
+</div>

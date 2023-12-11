@@ -1,5 +1,5 @@
 <div class="btn-back">
-    <button class="btn-tab" routerLink="/campaign/{{campaignId}}">Back</button>
+    <button class="btn-tab" routerLink="/location/{{local?.id}}">Back</button>
     </div>
     <div class="row" *ngIf="local">
         <div class="col-md-2"></div>
@@ -7,7 +7,7 @@
             <div class="alert alert-info pb-0" *ngIf="editForm.dirty">
                 <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
             </div>
-            <form #editForm="ngForm" id="editForm" (ngSubmit)="addLocation()">
+            <form #editForm="ngForm" id="editForm" (ngSubmit)="updateLocation()">
 
                 <h4 class="mt-2">Name</h4>
                 <textarea class="form-control"
