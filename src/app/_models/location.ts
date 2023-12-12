@@ -1,12 +1,13 @@
-import { CharacterPhoto } from "./characterPhoto"
+import { LocationPhoto } from "./locationPhoto";
+
 export interface Location {
     id:number;
     adminUser:string;
     campaignId:number;
     name : string;
-    image : string;
+    photoUrl : string;
     town: string;
     isVisible: boolean;
     description:string;
-    photos: CharacterPhoto[];
+    locationPhotos: LocationPhoto[];
 }

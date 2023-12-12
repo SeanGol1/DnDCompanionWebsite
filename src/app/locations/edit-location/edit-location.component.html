@@ -9,6 +9,7 @@
             </div>
             <form #editForm="ngForm" id="editForm" (ngSubmit)="updateLocation()">
 
+                <app-location-photo-editor [local]="local" ></app-location-photo-editor>
                 <h4 class="mt-2">Name</h4>
                 <textarea class="form-control"
                     [(ngModel)]="local.name"

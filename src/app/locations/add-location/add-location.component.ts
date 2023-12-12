@@ -21,8 +21,8 @@ export class AddLocationComponent implements OnInit{
       $event.returnValue = true;
     }
   }
-  local: Location | undefined = {id:0,adminUser:"",name:"",campaignId:0,image:"",
-  description:"",isVisible:false,town:"",photos:[]};
+  local: Location | undefined = {id:0,adminUser:"",name:"",campaignId:0,photoUrl:"",
+  description:"",isVisible:false,town:"",locationPhotos:[]};
   user: User | null = null;
   campaign: Campaign  |  undefined;
   campaignId : number = 0;

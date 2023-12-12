@@ -1,10 +1,10 @@
 <div class="card mb-4 text-center fantasy-border" *ngIf="local">
     <div>
         <div class="card-img-wrapper">
-            <ng-container *ngIf="local.image">
-                <img src="{{local.image}}" alt="" class="img-fluid" /> <!--style="max-width: 100%; height: auto;"-->
+            <ng-container *ngIf="local.photoUrl">
+                <img src="{{local.photoUrl}}" alt="" class="img-fluid" /> <!--style="max-width: 100%; height: auto;"-->
             </ng-container>
-            <ng-container *ngIf="!local.image">
+            <ng-container *ngIf="!local.photoUrl">
                 <img src="https://cdn.vectorstock.com/i/preview-1x/63/42/avatar-photo-placeholder-icon-design-vector-30916342.jpg"
                     alt="" class="img-fluid" /> <!--style="max-width: 100%; height: auto;"-->
             </ng-container>
