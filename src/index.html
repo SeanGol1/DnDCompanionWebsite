@@ -21,9 +21,9 @@ $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
   $('.carousel').carousel();
   $('.carousel-inner .carousel-item:first').addClass('active');
-  var myCarousel = document.querySelector('#locationCarousel');
-  var carousel = new bootstrap.Carousel(myCarousel);
-  carousel.interval = 10000;
+  // var myCarousel = document.querySelector('#locationCarousel');
+  // var carousel = new bootstrap.Carousel(myCarousel);
+  // carousel.interval = 10000;
   // setInterval(function () {
   //       $('.carousel').carousel('next');
   //     }, 3000); 
@@ -39,7 +39,7 @@ function setOpacity(){
   //TODO: fix image fade.
   
   // Basically, we go through each element and check its relative position within the viewport
-  $('button, h1,h2,h3, h4 , h5 , h6 , h7, input, img , textarea,span').each(function() {
+  $('button, h1,h2,h3, h4 , h5 , h6 , h7, input, textarea,span, .img, .img-thumbnail').each(function() {
       // Get current relative position in viewport, based on the top edge
     var pos = $(this).offset().top - $w.scrollTop();
     

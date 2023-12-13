@@ -250,6 +250,11 @@ input[type=number]{
   .player-form-div{
     max-width: 80%;
   }
+
+  .carousel{
+    align-self: center;
+    align-content: center;
+  }
 }
 
   
