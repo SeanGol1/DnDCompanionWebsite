@@ -56,7 +56,7 @@
 
 
         <div>
-            <div id="locationCarousel" class="carousel slide text-center" data-bs-interval="2000" data-ride="carousel">
+            <div id="locationCarousel" class="carousel slide text-center" data-bs-interval="7000" data-bs-ride="carousel" data-bs-keyboard="true" data-bs-pause="hover" data-bs-touch="true" >
                 <!-- <ol class="carousel-indicators">
                   <li data-target="#carouselIndicators" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselIndicators" data-slide-to="1"></li>
@@ -64,10 +64,10 @@
                 </ol> -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="carousel-image d-block w-100" src="{{local.photoUrl}}" alt="img">
+                        <img class="carousel-image" src="{{local.photoUrl}}" alt="img">
                     </div>
                     <div class="carousel-item" *ngFor="let photo of local.locationPhotos">
-                        <img class="carousel-image d-block w-100" src="{{photo.url}}" alt="img">
+                        <img class="carousel-image " src="{{photo.url}}" alt="img">
                     </div>
                 </div>
                 
