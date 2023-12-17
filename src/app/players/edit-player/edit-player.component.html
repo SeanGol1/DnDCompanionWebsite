@@ -8,6 +8,8 @@
             <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
         </div>
         <form #editForm="ngForm" id="editForm" (ngSubmit)="updatePlayer()">
+            <app-pc-photo-editor [player]="player"></app-pc-photo-editor>
+            
             <h4 class="mt-2">Character name</h4>
             <textarea class="form-control" [(ngModel)]="player.characterName" name="characterName" rows="1"></textarea>
             <h4 class="mt-2">Race</h4>
@@ -44,13 +46,13 @@
                 </div>
             </div>
 
-            <app-pc-photo-editor [player]="player"></app-pc-photo-editor>
+            
             
             <h4 class="mt-2">Description</h4>
             <textarea class="form-control" [(ngModel)]="player.description" name="description"></textarea>
             <h4 class="mt-2">Background</h4>
             <textarea class="form-control" [(ngModel)]="player.backgroundDescription" name="backgroundDescription"
-                rows="3"></textarea>
+            rows="5"></textarea>
 
         </form>
 
@@ -58,6 +60,6 @@
         <button type="submit" class="btn btn-success col-4" form="editForm">Save Changes</button>
 
     </div>
-    <div class="col--md-2"></div>
+    <div class="col-md-2"></div>
 
 </div>
