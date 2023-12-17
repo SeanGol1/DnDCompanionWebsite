@@ -1,4 +1,4 @@
-import { CharacterPhoto } from "./characterPhoto"
+import { NpcPhoto } from "./npcPhoto"
 export interface Npc {
   id: number;
   adminUser: string;
@@ -17,7 +17,7 @@ export interface Npc {
   intelligence: string;
   wisdom: string;
   charisma: string;
-  photos: CharacterPhoto[];
+  npcPhotos: NpcPhoto[];
 
 }
 

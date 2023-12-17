@@ -8,6 +8,8 @@
                 <p><strong>Information: </strong>You have made changes. Any unsaved changes will be lost</p>
             </div>
             <form #editForm="ngForm" id="editForm" (ngSubmit)="updateNpc()">
+                <app-npc-photo-editor [npc]="npc"></app-npc-photo-editor>
+
                 <h4 class="mt-2">Character name</h4>
                 <textarea class="form-control"
                     [(ngModel)]="npc.characterName"

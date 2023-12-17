@@ -81,16 +81,16 @@
             <div class="row" id="player-div">
                 <div class="row">
                     <div *ngIf="isDm">
-                    <h4 class="col-11">Players</h4>
-                    <div class="col-1">
-                        <button class="btn btn-success btn-add" routerLink="/players/add/{{campaign.id}}"
-                            data-toggle="tooltip" data-placement="top" title="Add Player"><i
-                                class="fa fa-plus"></i></button>
+                        <h4 class="col-11">Players</h4>
+                        <div class="col-1">
+                            <button class="btn btn-success btn-add" routerLink="/players/add/{{campaign.id}}"
+                                data-toggle="tooltip" data-placement="top" title="Add Player"><i
+                                    class="fa fa-plus"></i></button>
+                        </div>
                     </div>
-                </div>
-                <div *ngIf="!isDm">
-                    <h3 class="col-12">Players</h3>
-                </div>
+                    <div *ngIf="!isDm">
+                        <h3 class="col-12">Players</h3>
+                    </div>
                 </div>
                 <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let player of players">
                     <app-campaign-players [player]="player"></app-campaign-players>
