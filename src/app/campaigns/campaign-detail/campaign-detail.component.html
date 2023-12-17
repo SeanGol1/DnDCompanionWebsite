@@ -5,16 +5,20 @@
             <!--TODO: Fix spacing-->
             <ul class="list-inline member-icons animate text-center">
                 <li class="list-inline-item">
-            <button id='btn-about' class="btn-tab" (click)="tabChange('about')">About</button>
-            </li>
-            <li class="list-inline-item">
-            <button id='btn-quest' class="btn-tab" (click)="tabChange('quest')">Quests</button></li>
-            <li class="list-inline-item">
-            <button id='btn-pc' class="btn-tab" (click)="tabChange('pc')">Players</button>    </li>   
-            <li class="list-inline-item">  
-            <button id='btn-npc' class="btn-tab" (click)="tabChange('npc')">NPCs</button></li>   
-            <li class="list-inline-item">
-            <button id='btn-location' class="btn-tab" (click)="tabChange('location')">Locations</button></li>
+                    <button id='btn-about' class="btn-tab" (click)="tabChange('about')">About</button>
+                </li>
+                <li class="list-inline-item">
+                    <button id='btn-quest' class="btn-tab" (click)="tabChange('quest')">Quests</button>
+                </li>
+                <li class="list-inline-item">
+                    <button id='btn-pc' class="btn-tab" (click)="tabChange('pc')">Players</button>
+                </li>
+                <li class="list-inline-item">
+                    <button id='btn-npc' class="btn-tab" (click)="tabChange('npc')">NPCs</button>
+                </li>
+                <li class="list-inline-item">
+                    <button id='btn-location' class="btn-tab" (click)="tabChange('location')">Locations</button>
+                </li>
             </ul>
         </div>
 
@@ -23,7 +27,7 @@
                 <h2>{{campaign.name}}</h2>
             </div>
             <div class="row">
-                <div class="col-sm-6">                        
+                <div class="col-sm-6">
                     <p><strong>Description:</strong> {{campaign.description}}</p>
                 </div>
                 <div class="col-sm-6">
@@ -31,69 +35,86 @@
                         <div class="col-sm-6">
                             <p><strong>Campaign Id:</strong> {{campaign.id}}</p>
                         </div>
-                        <div class="col-sm-6">                                
+                        <div class="col-sm-6">
                             <p><strong>DM:</strong> {{campaign.adminUser | titlecase}}</p>
                         </div>
-                        <div class="col-sm-6">                                
+                        <div class="col-sm-6">
                             <p><strong>Campaign Started:</strong> {{campaign.createDate}}</p>
                         </div>
                     </div>
                 </div>
-            </div>                
+            </div>
             <div class="row">
                 <h3 class="col-11">Session Notes</h3>
                 <div class="col-1" *ngIf="isDm">
-                    <button class="btn btn-success btn-add" routerLink="/notes/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add New Note"><i class="fa fa-plus"></i></button>
+                    <button class="btn btn-success btn-add" routerLink="/notes/add/{{campaign.id}}"
+                        data-toggle="tooltip" data-placement="top" title="Add New Note"><i
+                            class="fa fa-plus"></i></button>
                 </div>
             </div>
             <div *ngFor="let note of notes">
-                <app-note-card [note]="note" [isAdmin] ="isDm"></app-note-card>
-            </div>                
+                <app-note-card [note]="note" [isAdmin]="isDm"></app-note-card>
+            </div>
         </div>
 
-            <div *ngIf="activeTab == 'quest'">
+        <div *ngIf="activeTab == 'quest'">
             <div class="row">
                 <div class="row">
                     <h3 class="col-11">Main Quests</h3>
                     <div class="col-1" *ngIf="isDm">
-                    <button class="btn btn-success btn-add" routerLink="/quests/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add Quest"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success btn-add" routerLink="/quests/add/{{campaign.id}}"
+                            data-toggle="tooltip" data-placement="top" title="Add Quest"><i
+                                class="fa fa-plus"></i></button>
                     </div>
                 </div>
                 <div *ngFor="let quest of mainQuests">
-                    <app-campaign-quest [quest]="quest" [isAdmin] ="isDm"></app-campaign-quest>
+                    <app-campaign-quest [quest]="quest" [isAdmin]="isDm"></app-campaign-quest>
                 </div>
 
                 <h3>Side Quests</h3>
                 <div style="margin-top: 20px;" *ngFor="let quest of sideQuests">
-                    <app-campaign-quest [quest]="quest" [isAdmin] ="isDm" ></app-campaign-quest>
-                </div>    
-            </div> 
+                    <app-campaign-quest [quest]="quest" [isAdmin]="isDm"></app-campaign-quest>
+                </div>
+            </div>
         </div>
         <div *ngIf="activeTab == 'pc'">
             <div class="row" id="player-div">
                 <div class="row">
+                    <div *ngIf="isDm">
                     <h4 class="col-11">Players</h4>
                     <div class="col-1">
-                        <button class="btn btn-success btn-add" routerLink="/players/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add Player"><i class="fa fa-plus"></i></button>
+                        <button class="btn btn-success btn-add" routerLink="/players/add/{{campaign.id}}"
+                            data-toggle="tooltip" data-placement="top" title="Add Player"><i
+                                class="fa fa-plus"></i></button>
                     </div>
                 </div>
+                <div *ngIf="!isDm">
+                    <h3 class="col-12">Players</h3>
+                </div>
+                </div>
                 <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let player of players">
-                    <app-campaign-players [player]="player" ></app-campaign-players>
-                </div>      
-            </div>         
+                    <app-campaign-players [player]="player"></app-campaign-players>
+                </div>
+            </div>
         </div>
         <div *ngIf="activeTab == 'npc'">
             <div class="row">
                 <div class="row">
-                    <!-- TODO: Fix Spacing -->
-                    <h3 class="col-11">NPCs</h3>
-                    <div class="col-1" *ngIf="isDm">
-                        <button class="btn btn-success btn-add" routerLink="/npc/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add NPC"><i class="fa fa-plus"></i></button>
+                    <div *ngIf="isDm">
+                        <h3 class="col-11">NPCs</h3>
+                        <div class="col-1" *ngIf="isDm">
+                            <button class="btn btn-success btn-add" routerLink="/npc/add/{{campaign.id}}"
+                                data-toggle="tooltip" data-placement="top" title="Add NPC"><i
+                                    class="fa fa-plus"></i></button>
+                        </div>
+                    </div>
+                    <div *ngIf="!isDm">
+                        <h3 class="col-12">NPCs</h3>
                     </div>
                 </div>
                 <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let npc of npcs">
-                    <app-npc-card  [npc]="npc" [isAdmin] ="isDm"></app-npc-card>
-                </div>   
+                    <app-npc-card [npc]="npc" [isAdmin]="isDm"></app-npc-card>
+                </div>
             </div>
         </div>
         <div *ngIf="activeTab == 'location'">
@@ -101,18 +122,20 @@
                 <div class="row">
                     <div *ngIf="isDm">
                         <h3 class="col-11">Locations</h3>
-                        <div class="col-1" >
-                            <button class="btn btn-success btn-add" routerLink="/location/add/{{campaign.id}}" data-toggle="tooltip" data-placement="top" title="Add Location"><i class="fa fa-plus"></i></button>
-                        </div>                    
+                        <div class="col-1">
+                            <button class="btn btn-success btn-add" routerLink="/location/add/{{campaign.id}}"
+                                data-toggle="tooltip" data-placement="top" title="Add Location"><i
+                                    class="fa fa-plus"></i></button>
+                        </div>
                     </div>
                     <div *ngIf="!isDm">
-                        <h3 class="col-12">Locations</h3>                 
+                        <h3 class="col-12">Locations</h3>
                     </div>
-                <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let local of locals">
-                   <app-location-card [local]="local" [isAdmin] ="isDm"></app-location-card>
-                </div>   
+                    <div class="col-lg-4" style="margin-top: 20px;" *ngFor="let local of locals">
+                        <app-location-card [local]="local" [isAdmin]="isDm"></app-location-card>
+                    </div>
+                </div>
             </div>
+
         </div>
-       
     </div>
-</div>

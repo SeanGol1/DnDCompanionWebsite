@@ -13,14 +13,15 @@
 </head>
 <body>
   <app-root></app-root>
-</body>
+
 
 <script>
 
 $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
   $('.carousel').carousel();
-  $('.carousel-inner .carousel-item:first').addClass('active');
+  //$('.carousel-inner .carousel-item:first').addClass('active');
+  $('.carousel-inner div:first-child').addClass('active');
   // var myCarousel = document.querySelector('#locationCarousel');
   // var carousel = new bootstrap.Carousel(myCarousel);
   // carousel.interval = 10000;
@@ -136,4 +137,5 @@ setBorderOpacity();
 
 
 </script>
+</body>
 </html>

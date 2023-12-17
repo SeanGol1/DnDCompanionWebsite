@@ -24,6 +24,10 @@ export class LocationDetailsComponent implements OnInit {
     this.loadLocation();
   }
 
+  ngAfterInit():void{
+    //$('.carousel-inner div:first-child').addClass('active');
+  }
+
 
 
   loadLocation(){       
@@ -63,7 +67,6 @@ export class LocationDetailsComponent implements OnInit {
   }
 
   toggleLocationVisibility(id:number){
-    // TODO: Toggle noc visibility 
     this.campaignService.toggleLocationVisibility(id).subscribe({
       next: () =>  {      
         if(this.local){

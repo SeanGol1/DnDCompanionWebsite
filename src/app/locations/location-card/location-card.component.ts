@@ -19,7 +19,7 @@ export class LocationCardComponent implements OnInit{
   }
 
   toggleLocationVisibility(id:number){
-    // TODO: Toggle noc visibility 
+    
     this.campaignService.toggleLocationVisibility(id).subscribe({
       next: () =>  {      
         if(this.local){
