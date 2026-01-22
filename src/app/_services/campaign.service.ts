@@ -228,4 +228,6 @@ export class CampaignService {
   getNotesByCampaignId(id:number){
     return this.http.get<Note[]>(this.baseUrl + 'notes/campaign/' + id);
   }
+
+  
 }

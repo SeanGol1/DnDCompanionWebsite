@@ -34,7 +34,7 @@ export class LocationDetailsComponent implements OnInit {
     var localid = Number(this.route.snapshot.paramMap.get('id'));
     if(localid) {
       this.campaignService.getLocationById(localid).pipe(take(1)).subscribe({
-        next: local=>{ 
+        next: (local: Location | undefined)=>{ 
           this.local = local
       
           this.accountService.currentUser$.pipe(take(1)).subscribe({
