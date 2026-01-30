@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-test-error',
   templateUrl: './test-error.component.html',
+  standalone: false,
   styleUrls: ['./test-error.component.css']
 })
 export class TestErrorComponent implements OnInit {

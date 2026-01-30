@@ -12,6 +12,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-add-location',
   templateUrl: './add-location.component.html',
+  standalone: false,
   styleUrls: ['./add-location.component.css']
 })
 export class AddLocationComponent implements OnInit{

@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-pc-photo-editor',
   templateUrl: './pc-photo-editor.component.html',
+  standalone: false,
   styleUrls: ['./pc-photo-editor.component.css']
 })
 export class PcPhotoEditorComponent implements OnInit{  

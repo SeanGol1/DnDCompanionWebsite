@@ -8,6 +8,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-add-note',
   templateUrl: './add-note.component.html',
+  standalone: false,
   styleUrls: ['./add-note.component.css']
 })
 export class AddNoteComponent implements OnInit{

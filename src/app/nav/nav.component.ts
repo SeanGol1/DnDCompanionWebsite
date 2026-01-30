@@ -8,6 +8,7 @@ import { ToastrService } from 'ngx-toastr';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
+  standalone: false,
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {

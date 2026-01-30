@@ -6,6 +6,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-npc-card',
   templateUrl: './npc-card.component.html',
+  standalone: false,
   styleUrls: ['./npc-card.component.css']
 })
 export class NpcCardComponent implements OnInit{

@@ -8,6 +8,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-campaign-card',
   templateUrl: './campaign-card.component.html',
+  standalone: false,
   styleUrls: ['./campaign-card.component.css']
 })
 

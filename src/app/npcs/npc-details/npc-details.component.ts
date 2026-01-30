@@ -10,6 +10,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-npc-details',
   templateUrl: './npc-details.component.html',
+  standalone: false,
   styleUrls: ['./npc-details.component.css']
 })
 export class NpcDetailsComponent implements OnInit{

@@ -12,6 +12,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-add-npc',
   templateUrl: './add-npc.component.html',
+  standalone: false,
   styleUrls: ['./add-npc.component.css']
 })
 export class AddNpcComponent implements OnInit{

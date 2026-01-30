@@ -8,6 +8,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-edit-npc',
   templateUrl: './edit-npc.component.html',
+  standalone: false,
   styleUrls: ['./edit-npc.component.css']
 })
 export class EditNpcComponent implements OnInit{

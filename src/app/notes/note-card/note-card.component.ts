@@ -6,6 +6,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-note-card',
   templateUrl: './note-card.component.html',
+  standalone: false,
   styleUrls: ['./note-card.component.css']
 })
 export class NoteCardComponent {

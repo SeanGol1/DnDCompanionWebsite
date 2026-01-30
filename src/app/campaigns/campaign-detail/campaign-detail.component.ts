@@ -14,6 +14,7 @@ import { Location } from 'src/app/_models/location';
 @Component({
   selector: 'app-campaign-detail',
   templateUrl: './campaign-detail.component.html',
+  standalone: false,
   styleUrls: ['./campaign-detail.component.css']
 })
 

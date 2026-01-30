@@ -10,6 +10,7 @@ import { Location } from 'src/app/_models/location';
 @Component({
   selector: 'app-location-details',
   templateUrl: './location-details.component.html',
+  standalone: false,
   styleUrls: ['./location-details.component.css']
 })
 export class LocationDetailsComponent implements OnInit {

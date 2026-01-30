@@ -7,6 +7,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-campaign-quest-list',
   templateUrl: './campaign-quest-list.component.html',
+  standalone: false,
   styleUrls: ['./campaign-quest-list.component.css']
 })
 export class CampaignQuestListComponent implements OnInit{

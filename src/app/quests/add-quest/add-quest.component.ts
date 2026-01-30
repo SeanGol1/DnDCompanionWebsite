@@ -11,6 +11,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-add-quest',
   templateUrl: './add-quest.component.html',
+  standalone: false,
   styleUrls: ['./add-quest.component.css']
 })
 export class AddQuestComponent implements OnInit{

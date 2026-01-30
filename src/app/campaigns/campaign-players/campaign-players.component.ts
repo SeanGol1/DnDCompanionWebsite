@@ -9,6 +9,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-campaign-players',
   templateUrl: './campaign-players.component.html',
+  standalone: false,
   styleUrls: ['./campaign-players.component.css']
 })
 export class CampaignPlayersComponent implements OnInit{

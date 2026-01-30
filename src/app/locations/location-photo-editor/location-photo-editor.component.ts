@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-location-photo-editor',
   templateUrl: './location-photo-editor.component.html',
+  standalone: false,
   styleUrls: ['./location-photo-editor.component.css']
 })
 export class LocationPhotoEditorComponent implements OnInit{  

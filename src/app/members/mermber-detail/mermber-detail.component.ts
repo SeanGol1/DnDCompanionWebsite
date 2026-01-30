@@ -6,6 +6,7 @@ import { MembersService } from 'src/app/_services/members.service';
 @Component({
   selector: 'app-mermber-detail',
   templateUrl: './mermber-detail.component.html',
+  standalone: false,
   styleUrls: ['./mermber-detail.component.css']
 })
 export class MermberDetailComponent implements OnInit{

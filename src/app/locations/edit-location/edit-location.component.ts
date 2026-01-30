@@ -8,6 +8,7 @@ import { Location } from 'src/app/_models/location';
 @Component({
   selector: 'app-edit-location',
   templateUrl: './edit-location.component.html',
+  standalone: false,
   styleUrls: ['./edit-location.component.css']
 })
 export class EditLocationComponent implements OnInit{

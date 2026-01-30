@@ -13,6 +13,7 @@ import { MembersService } from 'src/app/_services/members.service';
 @Component({
   selector: 'app-add-players',
   templateUrl: './add-players.component.html',
+  standalone: false,
   styleUrls: ['./add-players.component.css']
 })
 export class AddPlayersComponent implements OnInit {  

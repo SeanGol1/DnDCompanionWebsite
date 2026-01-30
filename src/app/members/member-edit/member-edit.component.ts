@@ -10,6 +10,7 @@ import { MembersService } from 'src/app/_services/members.service';
 @Component({
   selector: 'app-member-edit',
   templateUrl: './member-edit.component.html',
+  standalone: false,
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {

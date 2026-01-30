@@ -6,6 +6,7 @@ import { Location } from 'src/app/_models/location';
 @Component({
   selector: 'app-location-card',
   templateUrl: './location-card.component.html',
+  standalone: false,
   styleUrls: ['./location-card.component.css']
 })
 export class LocationCardComponent implements OnInit{

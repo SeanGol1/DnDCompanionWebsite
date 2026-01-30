@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment';
 @Component({
   selector: 'app-npc-photo-editor',
   templateUrl: './npc-photo-editor.component.html',
+  standalone: false,
   styleUrls: ['./npc-photo-editor.component.css']
 })
 export class NpcPhotoEditorComponent implements OnInit{  

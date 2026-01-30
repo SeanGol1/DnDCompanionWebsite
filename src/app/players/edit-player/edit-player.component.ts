@@ -9,6 +9,7 @@ import { CampaignService } from 'src/app/_services/campaign.service';
 @Component({
   selector: 'app-edit-player',
   templateUrl: './edit-player.component.html',
+  standalone: false,
   styleUrls: ['./edit-player.component.css']
 })
 export class EditPlayerComponent implements OnInit{
